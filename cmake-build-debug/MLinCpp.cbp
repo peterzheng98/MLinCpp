@@ -92,6 +92,9 @@
 		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/misc/exception.h">
 			<Option target="MLinCpp"/>
 		</Unit>
+		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/misc/usefulTools.h">
+			<Option target="MLinCpp"/>
+		</Unit>
 		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

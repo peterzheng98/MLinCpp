@@ -6,6 +6,7 @@
 #define MLINCPP_MATRIX_H
 #include <string>
 #include <vector>
+#include "misc/usefulTools.h"
 namespace peterzheng {
 /*
  * Class matrix:
@@ -84,6 +85,13 @@ template <class T, class U> bool checkSize(matrix<T> &r1, matrix<U> &r2) {
 }
 std::string genSize(matrix<T> &r1) {
   return std::to_string(r1.getM()) + "," + std::to_string(r1.getN());
+}
+template <class T>
+matrix<T> getIdentity(size_t t){
+  matrix<T> result(t, t);
+  for(size_t idx = 0; idx < t; ++idx)
+    result(idx, idx) = T(1);
+  return result;
 }
 } // namespace peterzheng
 
