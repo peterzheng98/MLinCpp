@@ -8,6 +8,9 @@ Notice that the input is placed in configure.in and matrix.in, the output should
 The arithtest request for all the result which are +, -, *(matrixA and matrixB[0][0]), *(matrixA[0][0] and matrixB)
 '''
 
+def dumpOut(msg, result, idx):
+
+
 NumOfNormalArith = 100 # rounds for normal calculation
 LowerBound = -100
 UpperBound = 100
@@ -59,9 +62,11 @@ for _ in range(NumOfNormalArith):
     try:
         subprocess.run(MatrixCppPath, timeout = 1)
     except subprocess.TimeoutExpired:
-        correct = 3
+        correct = 2
+        dumpOut('Time Limit Exceeded. Dumpout Seq: A, B, A+B, A-B, A*B[0][0], A[0][0]*B', [matrixA, matrixB, result_plus, result_minus, result_multi_singleA, result_multi_singleB], _ + 1)
     except:
         correct = 3
+        dumpOut('Runtime Error. Dumpout Seq: A, B, A+B, A-B, A*B[0][0], A[0][0]*B', [matrixA, matrixB, result_plus, result_minus, result_multi_singleA, result_multi_singleB], _ + 1)
     # Get output here
     if correct == 0:
         try:
@@ -71,6 +76,7 @@ for _ in range(NumOfNormalArith):
                 rawData = [i.strip('\n') for i in rawData]
             if rawData[sizeM] != None or rawData[sizeM * 2 + 1] != None or rawData[sizeM * 3 + 2] != None or rawData[sizeM * 4 + 3] != None:
                 correct = 1
+                dumpOut('Wrong Answer. Dumpout Seq: A, B, A+B, A-B, A*B[0][0], A[0][0]*B', [matrixA, matrixB, result_plus, result_minus, result_multi_singleA, result_multi_singleB], _ + 1)
                 pass
             else:
                 curIdx = 0
@@ -86,24 +92,28 @@ for _ in range(NumOfNormalArith):
                             pass
                         else:
                             correct = 1
+                            dumpOut('Wrong Answer. Dumpout Seq: A, B, A+B, A-B, A*B[0][0], A[0][0]*B', [matrixA, matrixB, result_plus, result_minus, result_multi_singleA, result_multi_singleB], _ + 1)
                             pass
-                    elif round == 2:
+                    elif round == 2 and correct = 0:
                         if numpy_matrix == result_plus:
                             pass
                         else:
                             correct = 1
+                            dumpOut('Wrong Answer. Dumpout Seq: A, B, A+B, A-B, A*B[0][0], A[0][0]*B', [matrixA, matrixB, result_plus, result_minus, result_multi_singleA, result_multi_singleB], _ + 1)
                             pass
-                    elif round == 3:
+                    elif round == 3 and correct = 0:
                         if numpy_matrix == result_plus:
                             pass
                         else:
                             correct = 1
+                            dumpOut('Wrong Answer. Dumpout Seq: A, B, A+B, A-B, A*B[0][0], A[0][0]*B', [matrixA, matrixB, result_plus, result_minus, result_multi_singleA, result_multi_singleB], _ + 1)
                             pass
-                    elif round == 4:
+                    elif round == 4 and correct = 0:
                         if numpy_matrix == result_plus:
                             pass
                         else:
                             correct = 1
+                            dumpOut('Wrong Answer. Dumpout Seq: A, B, A+B, A-B, A*B[0][0], A[0][0]*B', [matrixA, matrixB, result_plus, result_minus, result_multi_singleA, result_multi_singleB], _ + 1)
                             pass
                     curIdx += sizeM
         except Exception as identifier:
