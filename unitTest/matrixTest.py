@@ -40,7 +40,7 @@ for _ in range(NumOfNormalArith):
     matrixA = []
     matrixB = []
     sizeM = random.randint(1, 10)
-    sizeN = random.randint(1, 10)
+    sizeN = sizeM
     for __ in range(sizeM):
         matrixA_1 = []
         matrixB_1 = []
@@ -87,6 +87,8 @@ for _ in range(NumOfNormalArith):
         colidx = 0
         lineidx += 1
     correct = 0
+    result_matmul = np.matmul(matrixA_numpy, matrixB_numpy)
+
     # Execute the program
     try:
         subprocess.run(MatrixCppPath, timeout = 2)
@@ -146,6 +148,13 @@ for _ in range(NumOfNormalArith):
                         else:
                             correct = 1
                             dumpOut('Wrong Answer. Dumpout Seq: A, B, A[0][0]*B, your answer', [matrixA_numpy, matrixB_numpy, result_multi_singleB, numpy_matrix], _ + 1)
+                            pass
+                    elif round == 5 and correct == 0:
+                        if np.array_equal(numpy_matrix, result_matmul):
+                            pass
+                        else:
+                            correct = 1
+                            dumpOut('Wrong Answer. Dumpout Seq: A, B, A*B, your answer', [matrixA_numpy, matrixB_numpy, result_matmul, numpy_matrix], _ + 1)
                             pass
                     curIdx += (sizeM + 1)
         except Exception as identifier:

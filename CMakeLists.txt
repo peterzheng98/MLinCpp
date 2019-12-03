@@ -4,5 +4,5 @@ project(MLinCpp)
 set(CMAKE_CXX_STANDARD 14)
 
 
-add_executable(MLinCpp main.cpp matrix.h misc/exception.h misc/usefulTools.h)
-add_executable(MatrixTest matrixTest.cpp)
+add_executable(MLinCpp main.cpp misc/exception.h misc/usefulTools.h)
+add_executable(MatrixTest unitTest/matrixTest.cpp)

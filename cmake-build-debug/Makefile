@@ -163,32 +163,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-matrixTest.o: matrixTest.cpp.o
+unitTest/matrixTest.o: unitTest/matrixTest.cpp.o
 
-.PHONY : matrixTest.o
+.PHONY : unitTest/matrixTest.o
 
 # target to build an object file
-matrixTest.cpp.o:
-	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/matrixTest.cpp.o
-.PHONY : matrixTest.cpp.o
+unitTest/matrixTest.cpp.o:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/unitTest/matrixTest.cpp.o
+.PHONY : unitTest/matrixTest.cpp.o
 
-matrixTest.i: matrixTest.cpp.i
+unitTest/matrixTest.i: unitTest/matrixTest.cpp.i
 
-.PHONY : matrixTest.i
+.PHONY : unitTest/matrixTest.i
 
 # target to preprocess a source file
-matrixTest.cpp.i:
-	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/matrixTest.cpp.i
-.PHONY : matrixTest.cpp.i
+unitTest/matrixTest.cpp.i:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/unitTest/matrixTest.cpp.i
+.PHONY : unitTest/matrixTest.cpp.i
 
-matrixTest.s: matrixTest.cpp.s
+unitTest/matrixTest.s: unitTest/matrixTest.cpp.s
 
-.PHONY : matrixTest.s
+.PHONY : unitTest/matrixTest.s
 
 # target to generate assembly for a file
-matrixTest.cpp.s:
-	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/matrixTest.cpp.s
-.PHONY : matrixTest.cpp.s
+unitTest/matrixTest.cpp.s:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/unitTest/matrixTest.cpp.s
+.PHONY : unitTest/matrixTest.cpp.s
 
 # Help Target
 help:
@@ -203,9 +203,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... matrixTest.o"
-	@echo "... matrixTest.i"
-	@echo "... matrixTest.s"
+	@echo "... unitTest/matrixTest.o"
+	@echo "... unitTest/matrixTest.i"
+	@echo "... unitTest/matrixTest.s"
 .PHONY : help
 
 

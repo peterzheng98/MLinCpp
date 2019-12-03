@@ -13,8 +13,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/matrix/matrixDef.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/matrix/matrixTools.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix_impl.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/usefulTools.h" beforeDir="false" afterPath="$PROJECT_DIR$/misc/usefulTools.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/configure.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/foo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/matrix.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/matrixTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,13 +48,18 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="gKBJAMxr" />
   </component>
+  <component name="OCResolveContextSettings">
+    <option name="configuration" value="0-MatrixTest" />
+  </component>
   <component name="ProjectId" id="1U4JphPicmrivsdfPTWL9o3XvER" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.overridden" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-debug" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/unitTest" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -53,6 +70,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/unitTest" />
+      <recent name="$PROJECT_DIR$/unitTest/build" />
+      <recent name="$PROJECT_DIR$/matrix" />
       <recent name="$PROJECT_DIR$/cmake-build-debug" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -71,7 +91,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.MatrixTest">
+  <component name="RunManager" selected="CMake Application.MLinCpp">
     <configuration name="MLinCpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MLinCpp" TARGET_NAME="MLinCpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MLinCpp" RUN_TARGET_NAME="MLinCpp">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -99,7 +119,7 @@
       <updated>1574610118817</updated>
       <workItem from="1574610123327" duration="1475000" />
       <workItem from="1574650997973" duration="1429000" />
-      <workItem from="1575294160501" duration="11995000" />
+      <workItem from="1575294160501" duration="18494000" />
     </task>
     <servers />
   </component>
@@ -118,16 +138,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/matrixTest.cpp</url>
-          <line>26</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

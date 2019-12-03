@@ -4,12 +4,14 @@
 
 #ifndef MLINCPP_MATRIX_H
 #define MLINCPP_MATRIX_H
-#include "misc/exception.h"
-#include "misc/usefulTools.h"
+#include "../misc/exception.h"
+#include "../misc/usefulTools.h"
+#include "matrixDef.h"
 #include <fstream>
 #include <string>
 #include <vector>
 namespace peterzheng {
+namespace matrix {
 /*
  * Class matrix:
  * give out a matrix class that solves two-dimension matrix calculation
@@ -18,6 +20,7 @@ template <class T> class matrix {
 private:
   std::vector<std::vector<T>> data;
   size_t m, n; // indicates m rows with n column matrix
+  NORM matrix_cmp = matrix_1;
 
 public:
   matrix() {
@@ -42,6 +45,21 @@ public:
   }
 
   matrix<T> &operator=(const matrix<T> &rhs) {
+    if (this == &rhs)
+      return *this;
+    m = rhs.getM();
+    n = rhs.getN();
+    data.resize(m);
+    for (size_t idx = 0; idx < m; ++idx) {
+      data[idx].resize(n);
+      for (size_t idx2 = 0; idx2 < n; ++idx2) {
+        data[idx][idx2] = rhs(idx, idx2);
+      }
+    }
+    return *this;
+  }
+  template <class U>
+  matrix<decltype(T() + U())> &operator=(const matrix<U> &rhs) {
     if (this == &rhs)
       return *this;
     m = rhs.getM();
@@ -89,17 +107,36 @@ public:
     f1 << std::endl;
     f1.close();
   }
+  void transpose(){
+    matrix<T> ret(n, m);
+    for(size_t row = 0; row < mat.getN(); ++row)
+      for(size_t col = 0; col < mat.getM(); ++col)
+        ret(row, col) = data[col][row];
+    *this = ret;
+  }
+
+  bool operator==(const Matrix<T>& rhs){
+    if(rhs.getN() != n) return false;
+    if(rhs.getM() != m) return false;
+    for(size_t row = 0; row < m; ++row)
+      for(size_t col = 0; col < n; ++col)
+        if(rhs(row, col) != data[row][col]) return false;
+    return true;
+  }
+  bool operator!=(const Matrix<T> &rhs){
+    return !operator==(rhs);
+  }
 
 public:
-  template <class U> matrix<decltype(U() * T())> operator*(const U &rhs);
   template <class U> matrix<decltype(U() * T())> &operator*=(const U &rhs);
 };
 
-template <class T, class U> bool checkSize(const matrix<T> &r1, const matrix<U> &r2){
+template <class T, class U>
+bool checkSize(const matrix<T> &r1, const matrix<U> &r2) {
   return r1.getM() == r2.getM() && r1.getN() == r2.getN();
 }
 
-template <class T, class U> bool checkSize(matrix<T> &r1, const matrix<U> &r2){
+template <class T, class U> bool checkSize(matrix<T> &r1, const matrix<U> &r2) {
   return r1.getM() == r2.getM() && r1.getN() == r2.getN();
 }
 
@@ -115,9 +152,13 @@ template <class T> matrix<T> getIdentity(size_t t) {
     result(idx, idx) = T(1);
   return result;
 }
-
+template <class U, class T>
+matrix<decltype(U() * T())> operator*(const matrix<T> &lhs, const U &rhs);
+template <class T, class U>
+matrix<decltype(T() * U())> operator*(const matrix<T> &lhs,
+                                      const matrix<U> &rhs);
+}
 } // namespace peterzheng
-
 
 #include "matrix_impl.hpp"
 #endif // MLINCPP_MATRIX_H
