@@ -4,12 +4,14 @@
 
 - Matrix[Basic Calculation #1 success, UnitTest provided]
 - Matrix[TODO: SVD, eigen value]
+- Linear Regression[Finish. Now making UnitTest]
 
 ## Future
 
-- Linear Regression
 - KNN
 - NN
+- RNN
+- RNN-LSTM
 
 ### Notes
 

@@ -13,15 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/toplevel/model.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix/matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix/matrix_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix_impl.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/matrixTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearRegression/linearRegression.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/linearRegression/linearRegression.hpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +110,7 @@
       <workItem from="1574650997973" duration="1429000" />
       <workItem from="1575294160501" duration="18494000" />
       <workItem from="1575371318408" duration="148000" />
-      <workItem from="1575375648282" duration="4779000" />
+      <workItem from="1575375648282" duration="8704000" />
     </task>
     <servers />
   </component>
