@@ -9,7 +9,6 @@
 ## Future
 
 - KNN
-- NN
 - RNN
 - RNN-LSTM
 

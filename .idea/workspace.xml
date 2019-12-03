@@ -14,6 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/linearRegression/linearRegression.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/linearRegression/linearRegression.hpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -110,7 +111,7 @@
       <workItem from="1574650997973" duration="1429000" />
       <workItem from="1575294160501" duration="18494000" />
       <workItem from="1575371318408" duration="148000" />
-      <workItem from="1575375648282" duration="8704000" />
+      <workItem from="1575375648282" duration="9626000" />
     </task>
     <servers />
   </component>
