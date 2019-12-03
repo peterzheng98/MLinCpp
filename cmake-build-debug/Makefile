@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named MatrixTest
+
+# Build rule for target.
+MatrixTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MatrixTest
+.PHONY : MatrixTest
+
+# fast build rule for target.
+MatrixTest/fast:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/build
+.PHONY : MatrixTest/fast
+
+#=============================================================================
 # Target rules for targets named MLinCpp
 
 # Build rule for target.
@@ -150,32 +163,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-matrix.o: matrix.cpp.o
+matrixTest.o: matrixTest.cpp.o
 
-.PHONY : matrix.o
+.PHONY : matrixTest.o
 
 # target to build an object file
-matrix.cpp.o:
-	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/matrix.cpp.o
-.PHONY : matrix.cpp.o
+matrixTest.cpp.o:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/matrixTest.cpp.o
+.PHONY : matrixTest.cpp.o
 
-matrix.i: matrix.cpp.i
+matrixTest.i: matrixTest.cpp.i
 
-.PHONY : matrix.i
+.PHONY : matrixTest.i
 
 # target to preprocess a source file
-matrix.cpp.i:
-	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/matrix.cpp.i
-.PHONY : matrix.cpp.i
+matrixTest.cpp.i:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/matrixTest.cpp.i
+.PHONY : matrixTest.cpp.i
 
-matrix.s: matrix.cpp.s
+matrixTest.s: matrixTest.cpp.s
 
-.PHONY : matrix.s
+.PHONY : matrixTest.s
 
 # target to generate assembly for a file
-matrix.cpp.s:
-	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/matrix.cpp.s
-.PHONY : matrix.cpp.s
+matrixTest.cpp.s:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/matrixTest.cpp.s
+.PHONY : matrixTest.cpp.s
 
 # Help Target
 help:
@@ -185,13 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... MatrixTest"
 	@echo "... MLinCpp"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... matrix.o"
-	@echo "... matrix.i"
-	@echo "... matrix.s"
+	@echo "... matrixTest.o"
+	@echo "... matrixTest.i"
+	@echo "... matrixTest.s"
 .PHONY : help
 
 

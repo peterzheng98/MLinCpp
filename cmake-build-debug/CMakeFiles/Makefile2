@@ -53,11 +53,13 @@ CMAKE_BINARY_DIR = /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/MatrixTest.dir/all
 all: CMakeFiles/MLinCpp.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
+clean: CMakeFiles/MatrixTest.dir/clean
 clean: CMakeFiles/MLinCpp.dir/clean
 
 .PHONY : clean
@@ -68,18 +70,45 @@ preinstall:
 .PHONY : preinstall
 
 #=============================================================================
+# Target rules for target CMakeFiles/MatrixTest.dir
+
+# All Build rule for target.
+CMakeFiles/MatrixTest.dir/all:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/depend
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target MatrixTest"
+.PHONY : CMakeFiles/MatrixTest.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/MatrixTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MatrixTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/MatrixTest.dir/rule
+
+# Convenience name for target.
+MatrixTest: CMakeFiles/MatrixTest.dir/rule
+
+.PHONY : MatrixTest
+
+# clean rule for target.
+CMakeFiles/MatrixTest.dir/clean:
+	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/clean
+.PHONY : CMakeFiles/MatrixTest.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/MLinCpp.dir
 
 # All Build rule for target.
 CMakeFiles/MLinCpp.dir/all:
 	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/depend
 	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target MLinCpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target MLinCpp"
 .PHONY : CMakeFiles/MLinCpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MLinCpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MLinCpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/MLinCpp.dir/rule

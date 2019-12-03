@@ -37,6 +37,48 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="MatrixTest">
+				<Option output="/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/MatrixTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatrixTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MatrixTest/fast">
+				<Option output="/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/MatrixTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatrixTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="MLinCpp">
 				<Option output="/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/MLinCpp" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug"/>
@@ -83,11 +125,11 @@
 		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/main.cpp">
 			<Option target="MLinCpp"/>
 		</Unit>
-		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/matrix.cpp">
-			<Option target="MLinCpp"/>
-		</Unit>
 		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/matrix.h">
 			<Option target="MLinCpp"/>
+		</Unit>
+		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/matrixTest.cpp">
+			<Option target="MatrixTest"/>
 		</Unit>
 		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/misc/exception.h">
 			<Option target="MLinCpp"/>

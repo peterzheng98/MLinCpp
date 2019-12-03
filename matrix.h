@@ -4,9 +4,11 @@
 
 #ifndef MLINCPP_MATRIX_H
 #define MLINCPP_MATRIX_H
+#include "misc/exception.h"
+#include "misc/usefulTools.h"
+#include <fstream>
 #include <string>
 #include <vector>
-#include "misc/usefulTools.h"
 namespace peterzheng {
 /*
  * Class matrix:
@@ -34,13 +36,14 @@ public:
     for (size_t idx = 0; idx < m; ++idx) {
       data[idx].resize(n);
       for (size_t idx2 = 0; idx2 < n; ++idx2) {
-        data[idx][idx2] = rhs(idx, idx2);
+        data[idx][idx2] = rhs.data[idx][idx2];
       }
     }
   }
 
-  matrix&operator=(const matrix<T>& rhs){
-    if(this == rhs) return this;
+  matrix<T> &operator=(const matrix<T> &rhs) {
+    if (this == &rhs)
+      return *this;
     m = rhs.getM();
     n = rhs.getN();
     data.resize(m);
@@ -50,6 +53,7 @@ public:
         data[idx][idx2] = rhs(idx, idx2);
       }
     }
+    return *this;
   }
 
   matrix(size_t m, size_t n) : m(m), n(n) {
@@ -57,9 +61,9 @@ public:
     for (auto &elem : data)
       elem.resize(n);
   }
-  matrix<T> operator+(const matrix<T> &rhs);
-  matrix<T> operator-(const matrix<T> &rhs);
-  matrix<T> operator*(const matrix<T> &rhs);
+  matrix<T> operator+(const matrix<T> &rhs) const;
+  matrix<T> operator-(const matrix<T> &rhs) const;
+  matrix<T> operator*(const matrix<T> &rhs) const;
   matrix<T> &operator+=(const matrix<T> &rhs);
   matrix<T> &operator-=(const matrix<T> &rhs);
   matrix<T> &operator*=(const matrix<T> &rhs);
@@ -68,31 +72,52 @@ public:
   size_t getN() const { return n; }
   void setN(size_t n) { matrix::n = n; }
   T &operator()(const int idx1, const int idx2) { return data[idx1][idx2]; }
-
+  const T &operator()(const int idx1, const int idx2) const {
+    return data[idx1][idx2];
+  }
   T &operator()(const size_t idx1, const size_t idx2) {
     return data[idx1][idx2];
+  }
+  void dumpToFile(const std::string &name,
+                  const std::ios_base::openmode &mode) {
+    std::fstream f1(name, mode);
+    for (size_t i = 0; i < m; ++i) {
+      for (size_t j = 0; j < n; ++j)
+        f1 << data[i][j] << " ";
+      f1 << std::endl;
+    }
+    f1 << std::endl;
+    f1.close();
   }
 
 public:
   template <class U> matrix<decltype(U() * T())> operator*(const U &rhs);
   template <class U> matrix<decltype(U() * T())> &operator*=(const U &rhs);
-
 };
 
-
-template <class T, class U> bool checkSize(matrix<T> &r1, matrix<U> &r2) {
+template <class T, class U> bool checkSize(const matrix<T> &r1, const matrix<U> &r2){
   return r1.getM() == r2.getM() && r1.getN() == r2.getN();
 }
-std::string genSize(matrix<T> &r1) {
+
+template <class T, class U> bool checkSize(matrix<T> &r1, const matrix<U> &r2){
+  return r1.getM() == r2.getM() && r1.getN() == r2.getN();
+}
+
+template <class T> bool checkSize(const matrix<T> &r1, const matrix<T> &r2) {
+  return r1.getM() == r2.getM() && r1.getN() == r2.getN();
+}
+template <class T> std::string genSize(const matrix<T> &r1) {
   return std::to_string(r1.getM()) + "," + std::to_string(r1.getN());
 }
-template <class T>
-matrix<T> getIdentity(size_t t){
+template <class T> matrix<T> getIdentity(size_t t) {
   matrix<T> result(t, t);
-  for(size_t idx = 0; idx < t; ++idx)
+  for (size_t idx = 0; idx < t; ++idx)
     result(idx, idx) = T(1);
   return result;
 }
+
 } // namespace peterzheng
 
+
+#include "matrix_impl.hpp"
 #endif // MLINCPP_MATRIX_H

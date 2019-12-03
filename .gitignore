@@ -11,7 +11,8 @@ Cargo.lock
 
 # Prerequisites
 *.d
-
+dump/
+*.in
 # Compiled Object files
 *.slo
 *.lo

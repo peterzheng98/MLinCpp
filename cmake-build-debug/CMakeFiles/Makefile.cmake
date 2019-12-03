@@ -52,5 +52,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/MatrixTest.dir/DependInfo.cmake"
   "CMakeFiles/MLinCpp.dir/DependInfo.cmake"
   )

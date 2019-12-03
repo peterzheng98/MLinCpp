@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MLinCpp.dir/main.cpp.o"
-  "CMakeFiles/MLinCpp.dir/matrix.cpp.o"
   "MLinCpp"
   "MLinCpp.pdb"
 )

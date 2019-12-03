@@ -11,7 +11,7 @@ class exception : public std::exception {
 private:
   std::string content, file, type;
   int line;
-  static string getCurrentTimeStr() {
+  static std::string getCurrentTimeStr() {
     time_t t = time(NULL);
     char ch[64] = {0};
     strftime(ch, sizeof(ch) - 1, "%Y-%m-%d %H:%M:%S",

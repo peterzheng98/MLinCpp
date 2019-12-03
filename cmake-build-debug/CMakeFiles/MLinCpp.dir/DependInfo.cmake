@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/peterzheng/CLionProjects/MLinCpp/main.cpp" "/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/MLinCpp.dir/main.cpp.o"
-  "/Users/peterzheng/CLionProjects/MLinCpp/matrix.cpp" "/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/MLinCpp.dir/matrix.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
