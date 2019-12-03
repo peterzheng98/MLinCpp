@@ -30,6 +30,14 @@ public:
       elem.resize(10);
   }
 
+  void reload(size_t m, size_t n){
+    this->m = m;
+    this->n = n;
+    data.resize(m);
+    for (auto &elem : data)
+      elem.resize(n);
+  }
+
   matrix(const std::vector<std::vector<T>> &data, size_t m, size_t n)
       : data(data), m(m), n(n) {}
   matrix(const matrix<T> &rhs) {
@@ -93,9 +101,6 @@ public:
   const T &operator()(const int idx1, const int idx2) const {
     return data[idx1][idx2];
   }
-  T &operator()(const size_t idx1, const size_t idx2) {
-    return data[idx1][idx2];
-  }
   void dumpToFile(const std::string &name,
                   const std::ios_base::openmode &mode) {
     std::fstream f1(name, mode);
@@ -109,13 +114,13 @@ public:
   }
   void transpose(){
     matrix<T> ret(n, m);
-    for(size_t row = 0; row < mat.getN(); ++row)
-      for(size_t col = 0; col < mat.getM(); ++col)
+    for(size_t row = 0; row < this->getN(); ++row)
+      for(size_t col = 0; col < this->getM(); ++col)
         ret(row, col) = data[col][row];
     *this = ret;
   }
 
-  bool operator==(const Matrix<T>& rhs){
+  bool operator==(const matrix<T>& rhs){
     if(rhs.getN() != n) return false;
     if(rhs.getM() != m) return false;
     for(size_t row = 0; row < m; ++row)
@@ -123,7 +128,7 @@ public:
         if(rhs(row, col) != data[row][col]) return false;
     return true;
   }
-  bool operator!=(const Matrix<T> &rhs){
+  bool operator!=(const matrix<T> &rhs){
     return !operator==(rhs);
   }
 

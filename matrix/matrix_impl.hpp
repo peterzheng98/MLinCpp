@@ -1,7 +1,8 @@
 //
 // Created by 郑文鑫 on 2019/11/24.
 //
-
+#ifndef MLINCPP_MATRIX_IMPL_HPP
+#define MLINCPP_MATRIX_IMPL_HPP
 #include "../misc/exception.h"
 
 namespace peterzheng {
@@ -104,3 +105,4 @@ matrix<decltype(U() * T())> &matrix<T>::operator*=(const U &rhs) {
 } // namespace matrix
 
 }
+#endif

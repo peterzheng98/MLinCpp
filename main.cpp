@@ -1,8 +1,6 @@
 #include <iostream>
-#include "matrix.h"
+#include "linearRegression/linearRegression.hpp"
 int main() {
-    peterzheng::matrix<int> q(10, 10);
-    q.setM(10);
     std::cout << "Hello, World!" << std::endl;
-    return 0;
+  return 0;
 }

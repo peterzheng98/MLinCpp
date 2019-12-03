@@ -13,20 +13,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/matrix/matrixDef.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matrix/matrixTools.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/toplevel/model.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix_impl.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/usefulTools.h" beforeDir="false" afterPath="$PROJECT_DIR$/misc/usefulTools.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/configure.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/foo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/matrix.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/matrixTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix/matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix/matrix_impl.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix_impl.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/matrixTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +43,9 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="gKBJAMxr" />
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-MatrixTest" />
+    <option name="configuration" value="0-MLinCpp" />
   </component>
   <component name="ProjectId" id="1U4JphPicmrivsdfPTWL9o3XvER" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -120,6 +116,8 @@
       <workItem from="1574610123327" duration="1475000" />
       <workItem from="1574650997973" duration="1429000" />
       <workItem from="1575294160501" duration="18494000" />
+      <workItem from="1575371318408" duration="148000" />
+      <workItem from="1575375648282" duration="4779000" />
     </task>
     <servers />
   </component>

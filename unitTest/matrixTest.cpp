@@ -3,6 +3,7 @@
 //
 #include "../matrix/matrix.h"
 #include "../matrix/matrixTools.h"
+#include "../linearRegression/linearRegression.hpp"
 #include <fstream>
 #include <iostream>
 // Stage 1
