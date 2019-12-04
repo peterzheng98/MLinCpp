@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named RNN
+
+# Build rule for target.
+RNN: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 RNN
+.PHONY : RNN
+
+# fast build rule for target.
+RNN/fast:
+	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/build
+.PHONY : RNN/fast
+
+#=============================================================================
 # Target rules for targets named MatrixTest
 
 # Build rule for target.
@@ -163,6 +176,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+neuralNetworks/RNN.o: neuralNetworks/RNN.cpp.o
+
+.PHONY : neuralNetworks/RNN.o
+
+# target to build an object file
+neuralNetworks/RNN.cpp.o:
+	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/neuralNetworks/RNN.cpp.o
+.PHONY : neuralNetworks/RNN.cpp.o
+
+neuralNetworks/RNN.i: neuralNetworks/RNN.cpp.i
+
+.PHONY : neuralNetworks/RNN.i
+
+# target to preprocess a source file
+neuralNetworks/RNN.cpp.i:
+	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/neuralNetworks/RNN.cpp.i
+.PHONY : neuralNetworks/RNN.cpp.i
+
+neuralNetworks/RNN.s: neuralNetworks/RNN.cpp.s
+
+.PHONY : neuralNetworks/RNN.s
+
+# target to generate assembly for a file
+neuralNetworks/RNN.cpp.s:
+	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/neuralNetworks/RNN.cpp.s
+.PHONY : neuralNetworks/RNN.cpp.s
+
 unitTest/matrixTest.o: unitTest/matrixTest.cpp.o
 
 .PHONY : unitTest/matrixTest.o
@@ -198,11 +238,15 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... RNN"
 	@echo "... MatrixTest"
 	@echo "... MLinCpp"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... neuralNetworks/RNN.o"
+	@echo "... neuralNetworks/RNN.i"
+	@echo "... neuralNetworks/RNN.s"
 	@echo "... unitTest/matrixTest.o"
 	@echo "... unitTest/matrixTest.i"
 	@echo "... unitTest/matrixTest.s"

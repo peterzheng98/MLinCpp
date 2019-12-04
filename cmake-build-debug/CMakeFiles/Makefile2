@@ -53,12 +53,14 @@ CMAKE_BINARY_DIR = /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/RNN.dir/all
 all: CMakeFiles/MatrixTest.dir/all
 all: CMakeFiles/MLinCpp.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
+clean: CMakeFiles/RNN.dir/clean
 clean: CMakeFiles/MatrixTest.dir/clean
 clean: CMakeFiles/MLinCpp.dir/clean
 
@@ -68,6 +70,33 @@ clean: CMakeFiles/MLinCpp.dir/clean
 preinstall:
 
 .PHONY : preinstall
+
+#=============================================================================
+# Target rules for target CMakeFiles/RNN.dir
+
+# All Build rule for target.
+CMakeFiles/RNN.dir/all:
+	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/depend
+	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target RNN"
+.PHONY : CMakeFiles/RNN.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/RNN.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/RNN.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/RNN.dir/rule
+
+# Convenience name for target.
+RNN: CMakeFiles/RNN.dir/rule
+
+.PHONY : RNN
+
+# clean rule for target.
+CMakeFiles/RNN.dir/clean:
+	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/clean
+.PHONY : CMakeFiles/RNN.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/MatrixTest.dir
