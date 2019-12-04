@@ -185,6 +185,7 @@ public:
           dumpOut << theta(idx1, idx2) << " ";
         dumpOut << std::endl;
       }
+      dumpOut.close();
     }
   }
   void compile() override {
