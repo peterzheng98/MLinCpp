@@ -7,9 +7,11 @@
 #include "../matrix/matrix.h"
 #include "../misc/exception.h"
 #include "../toplevel/model.h"
+#include "../misc/usefulTools.h"
 #include <algorithm>
 #include <chrono>
 #include <random>
+#include <ctime>
 namespace peterzheng {
 namespace model {
 enum GradientDescentPolicy { BatchGradientDescent, StochasticGradientDescent };
@@ -23,9 +25,10 @@ private:
   int savingInterval;
   int epochs;
   int batchSize;
-  static std::default_random_engine randomEngine;
-  static std::uniform_real_distribution<float> uniformRealDistribution;
-  static std::uniform_int_distribution<unsigned> uniformIntDistribution;
+  static std::random_device r;
+  std::default_random_engine randomEngine;
+  std::uniform_real_distribution<float> uniformRealDistribution;
+  std::uniform_int_distribution<unsigned> uniformIntDistribution;
 
 public:
   LinearRegression(const matrix::matrix<float> &rx,
@@ -37,7 +40,7 @@ public:
                    const int &savingInterval = 1)
       : x(rx), y(ry), policy(policy1), learningRate(lr),
         savingPrefix(savingPrefix), savingInterval(savingInterval),
-        epochs(targetEpoches), batchSize(batch) {
+        epochs(targetEpoches), batchSize(batch), randomEngine(time(0)) {
     if (y.getM() == 1)
       y.transpose();
     else if (y.getM() != 1 && y.getN() != 1)

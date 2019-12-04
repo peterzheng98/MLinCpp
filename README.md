@@ -12,8 +12,13 @@
 - RNN
 - RNN-LSTM
 
-### Notes
+## Notes
 
 #### Templates only be implemented in the header file
 
 https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file
+
+
+## Updates
+2019-12-4      
+- Test Pending: sigmoid(matrixTool.h), linear regression(linearRegression.hpp), RNN initial(RNN.cpp/h)

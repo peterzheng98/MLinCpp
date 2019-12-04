@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="MLinCpp" targetName="RNN" />
       <config projectName="MLinCpp" targetName="MatrixTest" />
       <config projectName="MLinCpp" targetName="MLinCpp" />
     </generated>
@@ -14,6 +15,11 @@
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearRegression/linearRegression.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/linearRegression/linearRegression.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix/matrixTools.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrixTools.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neuralNetworks/RNN.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetworks/RNN.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neuralNetworks/RNN.h" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetworks/RNN.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,9 +96,15 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RNN" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MLinCpp" TARGET_NAME="RNN" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MLinCpp" RUN_TARGET_NAME="RNN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.MatrixTest" />
       <item itemvalue="CMake Application.MLinCpp" />
+      <item itemvalue="CMake Application.RNN" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -109,7 +121,7 @@
       <workItem from="1574650997973" duration="1429000" />
       <workItem from="1575294160501" duration="18494000" />
       <workItem from="1575371318408" duration="148000" />
-      <workItem from="1575375648282" duration="11357000" />
+      <workItem from="1575375648282" duration="15518000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,7 @@
 #include "matrix.h"
 #include "matrixDef.h"
 #include <cmath>
+#include <iostream>
 namespace peterzheng {
 namespace matrix {
 template <class T>
@@ -113,6 +114,22 @@ matrix<T> getTranspose(const matrix<T>& mat){
     for(size_t col = 0; col < mat.getM(); ++col)
       ret(row, col) = mat(col, row);
   return ret;
+}
+template <class T>
+float _sigmoid(const T& data){
+  checkTypeCalculated(T());
+  return 1.0 / (1.0 + exp(-data));
+}
+
+template <class T>
+matrix<float> sigmoid(const matrix<T>& src){
+  matrix<float> result(src.getM(), src.getN());
+  if(src.getN() != 1 && src.getM() != 1) std::cerr << "Warning: [" << __FILE__ << ":" << __LINE__ << "]: Try to do sigmoid on a matrix object" << std::endl;
+  for(size_t idx = 0; idx < src.getM(); ++idx)
+    for(size_t idx2 = 0; idx2 < src.getN(); ++idx2)
+      result(idx, idx2) = _sigmoid(src(idx, idx2));
+  return result;
+  // Todo: Tobe tested
 }
 
 } // namespace matrix
