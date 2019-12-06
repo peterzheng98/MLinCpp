@@ -120,6 +120,12 @@ public:
     *this = ret;
   }
 
+  void minorMatrix(const size_t &d){
+    for(size_t idx = 0; idx < d; ++idx)
+      for(size_t idx2 = 0; idx2 < d; ++idx2)
+        data[idx][idx2] = (idx == idx2) ? T(1) : T(0);
+  }
+
   bool operator==(const matrix<T>& rhs){
     if(rhs.getN() != n) return false;
     if(rhs.getM() != m) return false;

@@ -177,9 +177,48 @@ matrix<T> getColumn(const matrix<T> &src, const size_t &col) {
                         std::to_string(col) + "]",
                     std::string(__FILE__), "MatrixError", __LINE__);
   matrix<T> ret(src.getM(), 1);
-  for(size_t idx = 0; idx < src.getM(); ++idx)
+  for (size_t idx = 0; idx < src.getM(); ++idx)
     ret(idx, 0) = src(idx, col);
   return ret;
+}
+
+template <class T>
+matrix<T> getMinorMatrix(const matrix<T> &src, const size_t &d) {
+  matrix<T> ret = src;
+  for (size_t idx = 0; idx < d; ++idx)
+    for (size_t idx2 = 0; idx2 < d; ++idx2)
+      ret(idx, idx2) = (idx == idx2) ? T(1) : T(0);
+  return ret;
+}
+
+template <class T>
+void QR_HouseHolder(const matrix<T> &src, matrix<float>& R, matrix<float>& Q){
+  size_t m = src.getM();
+  size_t n = src.getN();
+  std::vector<matrix<float>> qv(m);
+  matrix<float> z(src);
+  matrix<float> z1(z);
+  for(size_t k = 0; k < n && k < m - 1; ++k){
+    matrix<float> e(m, 1), x(m, 1);
+    float a;
+    z1 = getMinorMatrix(z, k);
+    x = getColumn(z1, k);
+    a = norm(x, NORM::vector_2);
+    if(src(k, k) > 0) a = -a;
+    for(size_t idx = 0; idx < m; ++idx){
+      e(idx, 0) = (idx == k) ? 1.0 * a : 0.0; // e = a * e
+    }
+    e = resizeVector(x + e); // e = x + a * e'
+    qv[k] = QR_compute_householder_factor(qv[k], e);
+    z = qv[k] * z1;
+  }
+  Q = qv[0];
+  for (int i = 1; i < n && i < m - 1; i++) {
+    z1 = qv[i] * Q;
+    Q = z1;
+  }
+  R = Q * src;
+  Q.transpose();
 }
 } // namespace matrix
 } // namespace peterzheng
