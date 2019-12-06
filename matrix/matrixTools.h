@@ -14,13 +14,15 @@
 namespace peterzheng {
 namespace matrix {
 template <class T>
-std::vector<float> eigen(const matrix<T>& mat, matrix<float>& V, matrix<float>& U){
+std::vector<float> eigen(const matrix<T> &mat, matrix<float> &V,
+                         matrix<float> &U) {
   // Todo: Eigen Value Decomposition
   return std::vector<float>();
 }
 
-template<class T>
-std::vector<float> svd(const matrix<T>& mat, matrix<float>& V, matrix<float>& U){
+template <class T>
+std::vector<float> svd(const matrix<T> &mat, matrix<float> &V,
+                       matrix<float> &U) {
   // Todo: Singular Value Decomposition
   return std::vector<float>();
 }
@@ -83,8 +85,9 @@ template <class T> float norm(const matrix<T> &mat, NORM target, int p = 0) {
       std::vector<float> matrixV = std::vector<float>();
       std::vector<float> singularValues = svd(mat, matrixU, matrixV);
       float maxSingularValues = singularValues[0];
-      for(auto &j : singularValues)
-        if(j > maxSingularValues) maxSingularValues = j;
+      for (auto &j : singularValues)
+        if (j > maxSingularValues)
+          maxSingularValues = j;
       return maxSingularValues;
     } else if (target == matrix_infty) {
       float maxsum = 0;
@@ -98,7 +101,7 @@ template <class T> float norm(const matrix<T> &mat, NORM target, int p = 0) {
           maxsum = sum;
       }
       return maxsum; // Calculate Matrix infty-norm
-    } else if(target == matrix_F){
+    } else if (target == matrix_F) {
       float sum = 0;
       for (size_t row = 0; row < mat.getM(); ++row)
         for (size_t col = 0; col < mat.getN(); ++col)
@@ -107,31 +110,77 @@ template <class T> float norm(const matrix<T> &mat, NORM target, int p = 0) {
     }
   }
 }
-template <class T>
-matrix<T> getTranspose(const matrix<T>& mat){
+template <class T> matrix<T> getTranspose(const matrix<T> &mat) {
   matrix<T> ret(mat.getN(), mat.getM());
-  for(size_t row = 0; row < mat.getN(); ++row)
-    for(size_t col = 0; col < mat.getM(); ++col)
+  for (size_t row = 0; row < mat.getN(); ++row)
+    for (size_t col = 0; col < mat.getM(); ++col)
       ret(row, col) = mat(col, row);
   return ret;
 }
-template <class T>
-float _sigmoid(const T& data){
+template <class T> float _sigmoid(const T &data) {
   checkTypeCalculated(T());
   return 1.0 / (1.0 + exp(-data));
 }
 
-template <class T>
-matrix<float> sigmoid(const matrix<T>& src){
+template <class T> matrix<float> sigmoid(const matrix<T> &src) {
   matrix<float> result(src.getM(), src.getN());
-  if(src.getN() != 1 && src.getM() != 1) std::cerr << "Warning: [" << __FILE__ << ":" << __LINE__ << "]: Try to do sigmoid on a matrix object" << std::endl;
-  for(size_t idx = 0; idx < src.getM(); ++idx)
-    for(size_t idx2 = 0; idx2 < src.getN(); ++idx2)
+  if (src.getN() != 1 && src.getM() != 1)
+    std::cerr << "Warning: [" << __FILE__ << ":" << __LINE__
+              << "]: Try to do sigmoid on a matrix object" << std::endl;
+  for (size_t idx = 0; idx < src.getM(); ++idx)
+    for (size_t idx2 = 0; idx2 < src.getN(); ++idx2)
       result(idx, idx2) = _sigmoid(src(idx, idx2));
   return result;
   // Todo: Tobe tested
 }
+template <class T> matrix<float> resizeVector(const matrix<T> &src) {
+  bool flag = false; // false if it is matrix, true if it is vector
+  if (src.getN() != 1 && src.getM() != 1)
+    flag = false;
+  else
+    flag = true;
+  matrix<float> ret(src);
+  float l2norm =
+      flag ? norm(src, NORM::vector_2, -1) : norm(src, NORM::matrix_F, -1);
+  for (size_t idx1 = 0; idx1 < src.getM(); ++idx1)
+    for (size_t idx2 = 0; idx2 < src.getN(); ++idx2)
+      ret(idx1, idx2) = 1.0 * src(idx1, idx2) / l2norm;
+  return ret;
+}
 
+/*
+ * QR_compute_householder_factor: mat = I - 2*v*v^T
+ */
+template <class T>
+matrix<float> QR_compute_householder_factor(const matrix<T> &mat,
+                                            const matrix<T> &vec) {
+  if (vec.getN() != 1 && vec.getM() != 1)
+    throw exception("Householder should be vector", std::string(__FILE__),
+                    "MatrixError(QR)", __LINE__);
+  matrix<float> rawVec = vec.getM() == 1 ? getTranspose(vec) : vec;
+  matrix<float> transposedVec = getTranspose(rawVec);
+  matrix<float> ret(rawVec.getM(), rawVec.getM());
+
+  for (size_t idx1 = 0; idx1 < rawVec.getM(); ++idx1)
+    for (size_t idx2 = 0; idx2 < rawVec.getM(); ++idx2)
+      ret(idx1, idx2) = -2 * rawVec(idx1, 0) * rawVec(0, idx2);
+
+  ret += getIdentity<float>(rawVec.getM());
+  return ret;
+}
+
+template <class T>
+matrix<T> getColumn(const matrix<T> &src, const size_t &col) {
+  if (col >= src.getN())
+    throw exception("Column larger than matrix! [" +
+                        std::to_string(src.getN()) + "] Request [" +
+                        std::to_string(col) + "]",
+                    std::string(__FILE__), "MatrixError", __LINE__);
+  matrix<T> ret(src.getM(), 1);
+  for(size_t idx = 0; idx < src.getM(); ++idx)
+    ret(idx, 0) = src(idx, col);
+  return ret;
+}
 } // namespace matrix
 } // namespace peterzheng
 
