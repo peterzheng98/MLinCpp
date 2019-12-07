@@ -22,3 +22,5 @@ https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented
 - Test Pending: sigmoid(matrixTool.h), linear regression(linearRegression.hpp), RNN initial(RNN.cpp/h)
 2019-12-6
 - Test Pending: QR Decomposition(matrixTool.h)
+2019-12-7
+- Test Pending: LU Decomposition(matrixTool.h)
