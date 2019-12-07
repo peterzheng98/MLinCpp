@@ -192,20 +192,22 @@ matrix<T> getMinorMatrix(const matrix<T> &src, const size_t &d) {
 }
 
 template <class T>
-void QR_HouseHolder(const matrix<T> &src, matrix<float>& R, matrix<float>& Q){
+std::pair<matrix<float>, matrix<float>>
+QR_HouseHolder(const matrix<T> &src, matrix<float> &R, matrix<float> &Q) {
   size_t m = src.getM();
   size_t n = src.getN();
   std::vector<matrix<float>> qv(m);
   matrix<float> z(src);
   matrix<float> z1(z);
-  for(size_t k = 0; k < n && k < m - 1; ++k){
+  for (size_t k = 0; k < n && k < m - 1; ++k) {
     matrix<float> e(m, 1), x(m, 1);
     float a;
     z1 = getMinorMatrix(z, k);
     x = getColumn(z1, k);
     a = norm(x, NORM::vector_2);
-    if(src(k, k) > 0) a = -a;
-    for(size_t idx = 0; idx < m; ++idx){
+    if (src(k, k) > 0)
+      a = -a;
+    for (size_t idx = 0; idx < m; ++idx) {
       e(idx, 0) = (idx == k) ? 1.0 * a : 0.0; // e = a * e
     }
     e = resizeVector(x + e); // e = x + a * e'
@@ -219,7 +221,41 @@ void QR_HouseHolder(const matrix<T> &src, matrix<float>& R, matrix<float>& Q){
   }
   R = Q * src;
   Q.transpose();
+  return std::make_pair(Q, R);
 }
+
+template <class T>
+std::pair<matrix<float>, matrix<float>> LU_Decomposition(const matrix<T> &src) {
+  if (src.getN() != src.getM())
+    throw exception(
+        "Not a square matrix, LU Decomposition can only apply to square matrix",
+        std::string(__FILE__), "MatrixError(LU)", __LINE__);
+  matrix<float> l(src.getM(), src.getM()), u(src.getM(), src.getM());
+  for(size_t i = 0; i < src.getM(); ++i)
+    for(size_t j = 0; j < src.getM(); ++j){
+      if(j < i) l(j, i) = 0;
+      else {
+        l(j, i) = src(j, i);
+        for(size_t k = 0; k < i; ++k){
+          l(j, i) = l(j, i) - l(j, k) * u(k, i);
+        }
+      }
+      for (size_t j = 0; j < src.getN(); j++) {
+        if (j < i) u(i, j) = 0;
+        else if (j == i)
+          u(i, j) = 1;
+        else {
+          u(i, j) = 1. * src(i, j) / l(i, i);
+          for (size_t k = 0; k < i; k++) {
+            u(i, j) = 1. * u(i, j) - ((1. * l(i, k) * u(k, j)) / l(i, i));
+          }
+        }
+      }
+    }
+  return std::make_pair(l, u);
+
+}
+
 } // namespace matrix
 } // namespace peterzheng
 

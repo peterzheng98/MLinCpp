@@ -15,8 +15,7 @@
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neuralNetworks/Conv2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetworks/Conv2D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neuralNetworks/Conv2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetworks/Conv2D.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix/matrixTools.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrixTools.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +119,7 @@
       <workItem from="1575371318408" duration="148000" />
       <workItem from="1575375648282" duration="16459000" />
       <workItem from="1575640472339" duration="3065000" />
-      <workItem from="1575731076684" duration="906000" />
+      <workItem from="1575731076684" duration="1786000" />
     </task>
     <servers />
   </component>
