@@ -13,9 +13,14 @@ namespace model{
 class Conv2D : public model{
 private:
   matrix::matrix<float> filter, x, y;
-  struct __param{
 
-  };
+public:
+  Conv2D(const matrix::matrix<float> &filter, const matrix::matrix<float> &x);
+
+private:
+  void run() override;
+  void compile() override;
+  float loss() override;
 };
 }
 }
