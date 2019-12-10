@@ -2,9 +2,10 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="MLinCpp" targetName="RNN" />
       <config projectName="MLinCpp" targetName="MatrixTest" />
       <config projectName="MLinCpp" targetName="MLinCpp" />
-      <config projectName="MLinCpp" targetName="RNN" />
+      <config projectName="MLinCpp" targetName="RunLR" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -14,8 +15,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/linearRegression/logisticRegression.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unitTest/runLR.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix/matrixTools.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrixTools.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix/matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/exception.h" beforeDir="false" afterPath="$PROJECT_DIR$/misc/exception.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/matrixTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/matrixTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,14 +51,12 @@
     <option name="directoryName" value="gKBJAMxr" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-RNN" />
-  </component>
   <component name="ProjectId" id="1U4JphPicmrivsdfPTWL9o3XvER" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.overridden" value="true" />
@@ -81,7 +92,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.MLinCpp">
+  <component name="RunManager" selected="CMake Application.RunLR">
     <configuration name="MLinCpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MLinCpp" TARGET_NAME="MLinCpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MLinCpp" RUN_TARGET_NAME="MLinCpp">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -97,10 +108,16 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RunLR" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MLinCpp" TARGET_NAME="RunLR" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MLinCpp" RUN_TARGET_NAME="RunLR">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.MatrixTest" />
       <item itemvalue="CMake Application.MLinCpp" />
       <item itemvalue="CMake Application.RNN" />
+      <item itemvalue="CMake Application.RunLR" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -119,7 +136,10 @@
       <workItem from="1575371318408" duration="148000" />
       <workItem from="1575375648282" duration="16459000" />
       <workItem from="1575640472339" duration="3065000" />
-      <workItem from="1575731076684" duration="1786000" />
+      <workItem from="1575731076684" duration="2417000" />
+      <workItem from="1575815459189" duration="1411000" />
+      <workItem from="1575954416962" duration="617000" />
+      <workItem from="1575974162588" duration="4552000" />
     </task>
     <servers />
   </component>
@@ -138,5 +158,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="sigmoidMat(idx, 0)" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

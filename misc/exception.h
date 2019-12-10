@@ -5,6 +5,7 @@
 #ifndef MLINCPP_EXCEPTION_H
 #define MLINCPP_EXCEPTION_H
 #include <exception>
+#include <iostream>
 #include <string>
 namespace peterzheng {
 class exception : public std::exception {
@@ -28,7 +29,9 @@ public:
   }
   exception(const std::string &content, const std::string &file,
             const std::string &type, int line)
-      : content(content), file(file), type(type), line(line) {}
+      : content(content), file(file), type(type), line(line) {
+    std::cerr << file << "[" << line << "]" << type << ": " << content << std::endl;
+  }
 };
 } // namespace peterzheng
 

@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named RunLR
+
+# Build rule for target.
+RunLR: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 RunLR
+.PHONY : RunLR
+
+# fast build rule for target.
+RunLR/fast:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/build
+.PHONY : RunLR/fast
+
+#=============================================================================
 # Target rules for targets named RNN
 
 # Build rule for target.
@@ -257,6 +270,33 @@ unitTest/matrixTest.cpp.s:
 	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/unitTest/matrixTest.cpp.s
 .PHONY : unitTest/matrixTest.cpp.s
 
+unitTest/runLR.o: unitTest/runLR.cpp.o
+
+.PHONY : unitTest/runLR.o
+
+# target to build an object file
+unitTest/runLR.cpp.o:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/unitTest/runLR.cpp.o
+.PHONY : unitTest/runLR.cpp.o
+
+unitTest/runLR.i: unitTest/runLR.cpp.i
+
+.PHONY : unitTest/runLR.i
+
+# target to preprocess a source file
+unitTest/runLR.cpp.i:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/unitTest/runLR.cpp.i
+.PHONY : unitTest/runLR.cpp.i
+
+unitTest/runLR.s: unitTest/runLR.cpp.s
+
+.PHONY : unitTest/runLR.s
+
+# target to generate assembly for a file
+unitTest/runLR.cpp.s:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/unitTest/runLR.cpp.s
+.PHONY : unitTest/runLR.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -264,6 +304,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... RunLR"
 	@echo "... edit_cache"
 	@echo "... RNN"
 	@echo "... MatrixTest"
@@ -280,6 +321,9 @@ help:
 	@echo "... unitTest/matrixTest.o"
 	@echo "... unitTest/matrixTest.i"
 	@echo "... unitTest/matrixTest.s"
+	@echo "... unitTest/runLR.o"
+	@echo "... unitTest/runLR.i"
+	@echo "... unitTest/runLR.s"
 .PHONY : help
 
 

@@ -11,13 +11,13 @@ NumOfNormalArith = 1000 # rounds for normal calculation
 LowerBound = -100
 UpperBound = 100
 runningTimeout = 1
-MatrixCppPath = './MatrixTest'
+MatrixCppPath = 'build/MatrixTest'
 CurrentProgress = 1
 REDColor = '\033[31m'
 GreenColor = '\033[32m'
 BlueColor = '\033[34m'
 EndColor = '\033[0m'
-PREFIX = 'dump/'
+PREFIX = '../dump/'
 np.set_printoptions(threshold=NumOfNormalArith * NumOfNormalArith + 10, linewidth=NumOfNormalArith + 10)
 def dumpOut(msg, result, idx):
     # np.set_printoptions(threshold=NumOfNormalArith * NumOfNormalArith + 10, linewidth=NumOfNormalArith + 10)

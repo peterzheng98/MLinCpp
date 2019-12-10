@@ -84,8 +84,12 @@ public:
 
   matrix(size_t m, size_t n) : m(m), n(n) {
     data.resize(m);
-    for (auto &elem : data)
+    for (auto &elem : data) {
       elem.resize(n);
+      for(auto &elemt : elem){
+        elemt = T(0);
+      }
+    }
   }
   matrix<T> operator+(const matrix<T> &rhs) const;
   matrix<T> operator-(const matrix<T> &rhs) const;
@@ -104,6 +108,7 @@ public:
   void dumpToFile(const std::string &name,
                   const std::ios_base::openmode &mode) {
     std::fstream f1(name, mode);
+    f1 << "size: " << m << "x" << n << std::endl;
     for (size_t i = 0; i < m; ++i) {
       for (size_t j = 0; j < n; ++j)
         f1 << data[i][j] << " ";

@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/RunLR.dir/all
 all: CMakeFiles/RNN.dir/all
 all: CMakeFiles/MatrixTest.dir/all
 all: CMakeFiles/MLinCpp.dir/all
@@ -60,6 +61,7 @@ all: CMakeFiles/MLinCpp.dir/all
 .PHONY : all
 
 # The main recursive "clean" target.
+clean: CMakeFiles/RunLR.dir/clean
 clean: CMakeFiles/RNN.dir/clean
 clean: CMakeFiles/MatrixTest.dir/clean
 clean: CMakeFiles/MLinCpp.dir/clean
@@ -70,6 +72,33 @@ clean: CMakeFiles/MLinCpp.dir/clean
 preinstall:
 
 .PHONY : preinstall
+
+#=============================================================================
+# Target rules for target CMakeFiles/RunLR.dir
+
+# All Build rule for target.
+CMakeFiles/RunLR.dir/all:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/depend
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=8,9 "Built target RunLR"
+.PHONY : CMakeFiles/RunLR.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/RunLR.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/RunLR.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/RunLR.dir/rule
+
+# Convenience name for target.
+RunLR: CMakeFiles/RunLR.dir/rule
+
+.PHONY : RunLR
+
+# clean rule for target.
+CMakeFiles/RunLR.dir/clean:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/clean
+.PHONY : CMakeFiles/RunLR.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/RNN.dir
