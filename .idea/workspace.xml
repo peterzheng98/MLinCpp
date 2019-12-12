@@ -2,10 +2,10 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="MLinCpp" targetName="RNN" />
+      <config projectName="MLinCpp" targetName="RunLR" />
       <config projectName="MLinCpp" targetName="MatrixTest" />
       <config projectName="MLinCpp" targetName="MLinCpp" />
-      <config projectName="MLinCpp" targetName="RunLR" />
+      <config projectName="MLinCpp" targetName="RNN" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -15,20 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/linearRegression/logisticRegression.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unitTest/runLR.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix/matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrix.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/exception.h" beforeDir="false" afterPath="$PROJECT_DIR$/misc/exception.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/matrixTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/matrixTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/matrixTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearRegression/logisticRegression.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/linearRegression/logisticRegression.hpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +127,8 @@
       <workItem from="1575731076684" duration="2417000" />
       <workItem from="1575815459189" duration="1411000" />
       <workItem from="1575954416962" duration="617000" />
-      <workItem from="1575974162588" duration="4552000" />
+      <workItem from="1575974162588" duration="5052000" />
+      <workItem from="1576150572679" duration="308000" />
     </task>
     <servers />
   </component>

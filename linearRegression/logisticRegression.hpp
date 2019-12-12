@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <chrono>
 #include <ctime>
+#include <map>
 #include <random>
 
 namespace peterzheng {
@@ -46,7 +47,8 @@ public:
     std::cout.setf(std::ios::fixed, std::ios::floatfield);
     std::cout.precision(4);
     std::cout << "Epoch: " << currentEpoch << "/" << epoches
-              << ": Training Loss: " << loss() << " Training Acc: " << acc() * 100 << "%"
+              // << ": Training Loss: " << loss() << " Training Acc: " << acc() * 100 << "%"
+              << ": AUC: " << auc()
               << " Last Epoch: " << timePerEpoch
               << "s ETA: " << timePerEpoch * 1.0 * (epoches - currentEpoch)
               << "s" << std::endl;
@@ -126,6 +128,30 @@ public:
       else if (sigmoidMat(idx, 0) < 0.5 && y(idx, 0) == 0)
         count++;
     return 1. * count / totalNum;
+  }
+
+  float auc(){
+    float ret = 0.0;
+    auto result = x * matrix::getTranspose(theta);
+    int TP = 0, FP = 0, TN = 0, FN = 0;
+    std::vector<std::pair<float, int>> dbTree;
+    for(size_t idx = 0; idx < totalNum; ++idx)
+      dbTree.push_back(std::pair<float, int>(result(idx, 0), y(idx, 0)));
+    std::sort(dbTree.begin(), dbTree.end(), [&](std::pair<float, int>& r1, std::pair<float, int>& r2){
+      return r1.first > r2.first;
+    });
+    int rk = 0;
+    int posNum = 0, negNum = 0;
+    int idx = 1;
+    for(auto &j : dbTree){
+      if(j.second == 1) {
+        posNum++;
+        rk += (idx);
+      } else negNum++;
+      idx += 1;
+    }
+    return 1. * (1. * rk - (posNum * (posNum + 1) /2.0)) / posNum / negNum;
+
   }
 };
 } // namespace model
