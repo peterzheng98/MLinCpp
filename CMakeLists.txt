@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 project(MLinCpp)
 
 set(CMAKE_CXX_STANDARD 14)
-
+set(CMAKE_CXX_FLAGS "-O2")
 
 add_executable(MLinCpp main.cpp misc/exception.h misc/usefulTools.h linearRegression/logisticRegression.hpp)
 add_executable(MatrixTest unitTest/matrixTest.cpp)
