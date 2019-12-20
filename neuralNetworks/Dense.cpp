@@ -19,6 +19,11 @@ peterzheng::model::DenseCell::DenseCell(
 void peterzheng::model::DenseCell::run() {
   output = activationfunc(weight * input + bias);
 }
+peterzheng::matrix::matrix<float> peterzheng::model::DenseCell::run(
+    const peterzheng::matrix::matrix<float> &x) {
+  this->output = activationfunc(weight * x + bias);
+  return this->output;
+}
 void peterzheng::model::DenseCell::compile() {
   if (input.getM() != 1 && input.getN() != 1)
     throw exception("Dense layer request for vector input.",
@@ -72,7 +77,48 @@ const peterzheng::matrix::matrix<float> &
 peterzheng::model::DenseCell::getBias() const {
   return bias;
 }
-void peterzheng::model::Dense::run() {}
+// Basic Idea:
+
+void peterzheng::model::Dense::run() {
+  // TODO
+  std::cout << "Start Training with learning rate at:" << this->learningRate << " Epoches:" << this->epoches << " Batch:" << this->batchSize << std::endl;
+  for(size_t currentEpoch = 0; currentEpoch < this->epoches; ++currentEpoch){
+    // Loading timing part
+    std::chrono::steady_clock::time_point epoch_start = std::chrono::steady_clock::now();
+
+    // select data
+    int slice = totalNum / batchSize;
+    int lower, higher;
+    for(int batchRound = 0; batchRound <= slice; ++batchRound){
+      //Timing for batch
+      std::chrono::steady_clock::time_point slice_start = std::chrono::steady_clock::now();
+
+      lower = batchRound * batchSize;
+      higher = std::min(batchRound * batchSize - 1, totalNum - 1);
+      std::uniform_int_distribution<unsigned>::param_type param(lower, higher);
+      uniformIntDistribution.param(param);
+      int target = uniformIntDistribution(randomEngine);
+
+      // Calculate forward
+      auto lastInput = matrix::getColumn(x, target);
+      auto basicStandard = matrix::getRow(y, target);
+      for(auto &layer : this->kernel){
+        lastInput = layer.run(lastInput);
+      }
+      // Calculate backward
+      // Step 1: Calculate errors
+      matrix::matrix<float> ErrorETA(1, y.getN());
+      for(size_t idx = 0; idx < y.getN(); ++idx)
+        ErrorETA(0, idx) = 1.0 * (lastInput(0, idx) - basicStandard(0, idx)) * (1 - lastInput(0, idx)) * lastInput(0, idx);
+      // Step 2: Update the weight and back prop
+      size_t length = this->kernel.size();
+      for(size_t LayerIdx = length - 1; LayerIdx > 0; --LayerIdx){
+
+      }
+    }
+  }
+
+}
 void peterzheng::model::Dense::summary() {
   for (size_t idx = 0; idx < 50; idx++)
     std::cout << "=";
@@ -83,8 +129,8 @@ void peterzheng::model::Dense::summary() {
   int LayerIdx = 0;
   long long sum = 0;
   for (auto &j : kernel) {
-    std::cout << "Dense_" << LayerIdx << "\t\t\t(" << j.getWeight().getM()
-              << "," << j.getWeight().getN() << ")\t\t\t"
+    std::cout << "Dense_" << LayerIdx << "\t\t\t Input Size:(" << j.getInput().getM() << "," << j.getInput().getN() << ") <--Weight:(" << j.getWeight().getM()
+              << "," << j.getWeight().getN() << ")--> Output Size:(" << j.getOutput().getM() << "," << j.getOutput().getN() << ")\t\t"
               << j.getWeight().getM() * j.getWeight().getN() +
                      j.getBias().getN() * j.getBias().getM()
               << std::endl;
@@ -119,16 +165,18 @@ void peterzheng::model::Dense::compile() {
     j.init();
   }
 }
-float peterzheng::model::Dense::loss() { return 0; }
+float peterzheng::model::Dense::loss() {
+  return 0;
+}
 peterzheng::model::Dense::Dense(
     const peterzheng::matrix::matrix<float> &x,
     const peterzheng::matrix::matrix<float> &y, const int &feature,
     const int &samples, const std::vector<int> &layerConnection,
     float learningRate, peterzheng::model::lossFunction::type lossfunction,
-    const std::string &savingPrefix, int savingInterval, int epoches)
+    const std::string &savingPrefix, int savingInterval, int epoches, int batchSize)
     : x(x), y(y), learningRate(learningRate), lossfunction(lossfunction),
       savingPrefix(savingPrefix), savingInterval(savingInterval),
-      epoches(epoches), config(layerConnection) {
+      epoches(epoches), config(layerConnection), batchSize(batchSize) {
   if (lossfunction == lossFunction::type::MSE)
     this->lossFunction = matrix::mse;
   if (this->x.getN() != samples && this->x.getM() != samples)
@@ -141,11 +189,12 @@ peterzheng::model::Dense::Dense(
         std::string(__FILE__), "InputError", __LINE__);
   if (this->y.getM() != samples && this->y.getN() != samples)
     throw exception(
-        "Input x error, should have at least samples columns or samples rows",
+        "Input y error, should have at least samples columns or samples rows",
         std::string(__FILE__), "InputError", __LINE__);
 
   if (this->x.getN() == feature)
     this->x.transpose();
   if (this->y.getN() == samples)
     this->y.transpose();
+  totalNum = samples;
 }

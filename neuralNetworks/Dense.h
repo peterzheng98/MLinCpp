@@ -25,6 +25,7 @@ private:
 
   static std::random_device r;
 
+
 public:
   const matrix::matrix<float> &getBias() const;
 
@@ -46,6 +47,7 @@ public:
 
 public:
   void run() override;
+  matrix::matrix<float> run(const matrix::matrix<float> &x);
   void compile() override;
   float loss() override;
   void init();
@@ -53,6 +55,9 @@ public:
   void setInput(const matrix::matrix<float> &input);
   const matrix::matrix<float> &getOutput() const;
   void update(const float &eta, const matrix::matrix<float> &grad);
+  const matrix::matrix<float> operator()(const matrix::matrix<float> &x){
+    return run(x);
+  }
 };
 
 // Implement as toy multi-dense layer
@@ -76,9 +81,11 @@ private:
   int savingInterval;
   int epoches;
   int totalNum;
+  int batchSize;
   static std::random_device r;
   std::default_random_engine randomEngine;
   std::uniform_real_distribution<float> uniformRealDistribution;
+  std::uniform_int_distribution<unsigned> uniformIntDistribution;
 
 public:
   Dense(const peterzheng::matrix::matrix<float> &x,
@@ -88,7 +95,7 @@ public:
         peterzheng::model::lossFunction::type lossfunction =
             lossFunction::type::MSE,
         const std::string &savingPrefix = "data/training",
-        int savingInterval = 1, int epoches = 128);
+        int savingInterval = 1, int epoches = 128, int batchSize = 1);
 
 public:
   void run() override;
