@@ -8,3 +8,4 @@ add_executable(MLinCpp main.cpp misc/exception.h misc/usefulTools.h linearRegres
 add_executable(MatrixTest unitTest/matrixTest.cpp)
 add_executable(RNN neuralNetworks/RNN.cpp neuralNetworks/Conv2D.cpp neuralNetworks/Conv2D.h)
 add_executable(RunLR unitTest/runLR.cpp neuralNetworks/Dense.cpp)
+add_executable(DenseLayerTest unitTest/DenseLayerTest.cpp neuralNetworks/Dense.cpp)

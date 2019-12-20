@@ -53,16 +53,18 @@ CMAKE_BINARY_DIR = /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/RunLR.dir/all
 all: CMakeFiles/RNN.dir/all
+all: CMakeFiles/DenseLayerTest.dir/all
+all: CMakeFiles/RunLR.dir/all
 all: CMakeFiles/MatrixTest.dir/all
 all: CMakeFiles/MLinCpp.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
-clean: CMakeFiles/RunLR.dir/clean
 clean: CMakeFiles/RNN.dir/clean
+clean: CMakeFiles/DenseLayerTest.dir/clean
+clean: CMakeFiles/RunLR.dir/clean
 clean: CMakeFiles/MatrixTest.dir/clean
 clean: CMakeFiles/MLinCpp.dir/clean
 
@@ -74,40 +76,13 @@ preinstall:
 .PHONY : preinstall
 
 #=============================================================================
-# Target rules for target CMakeFiles/RunLR.dir
-
-# All Build rule for target.
-CMakeFiles/RunLR.dir/all:
-	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/depend
-	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=8,9,10 "Built target RunLR"
-.PHONY : CMakeFiles/RunLR.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/RunLR.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/RunLR.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/RunLR.dir/rule
-
-# Convenience name for target.
-RunLR: CMakeFiles/RunLR.dir/rule
-
-.PHONY : RunLR
-
-# clean rule for target.
-CMakeFiles/RunLR.dir/clean:
-	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/clean
-.PHONY : CMakeFiles/RunLR.dir/clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/RNN.dir
 
 # All Build rule for target.
 CMakeFiles/RNN.dir/all:
 	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/depend
 	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=5,6,7 "Built target RNN"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=8,9,10 "Built target RNN"
 .PHONY : CMakeFiles/RNN.dir/all
 
 # Build rule for subdir invocation for target.
@@ -128,13 +103,67 @@ CMakeFiles/RNN.dir/clean:
 .PHONY : CMakeFiles/RNN.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/DenseLayerTest.dir
+
+# All Build rule for target.
+CMakeFiles/DenseLayerTest.dir/all:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/depend
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target DenseLayerTest"
+.PHONY : CMakeFiles/DenseLayerTest.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/DenseLayerTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/DenseLayerTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/DenseLayerTest.dir/rule
+
+# Convenience name for target.
+DenseLayerTest: CMakeFiles/DenseLayerTest.dir/rule
+
+.PHONY : DenseLayerTest
+
+# clean rule for target.
+CMakeFiles/DenseLayerTest.dir/clean:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/clean
+.PHONY : CMakeFiles/DenseLayerTest.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/RunLR.dir
+
+# All Build rule for target.
+CMakeFiles/RunLR.dir/all:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/depend
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=11,12,13 "Built target RunLR"
+.PHONY : CMakeFiles/RunLR.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/RunLR.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/RunLR.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/RunLR.dir/rule
+
+# Convenience name for target.
+RunLR: CMakeFiles/RunLR.dir/rule
+
+.PHONY : RunLR
+
+# clean rule for target.
+CMakeFiles/RunLR.dir/clean:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/clean
+.PHONY : CMakeFiles/RunLR.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/MatrixTest.dir
 
 # All Build rule for target.
 CMakeFiles/MatrixTest.dir/all:
 	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/depend
 	$(MAKE) -f CMakeFiles/MatrixTest.dir/build.make CMakeFiles/MatrixTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target MatrixTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=6,7 "Built target MatrixTest"
 .PHONY : CMakeFiles/MatrixTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -161,7 +190,7 @@ CMakeFiles/MatrixTest.dir/clean:
 CMakeFiles/MLinCpp.dir/all:
 	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/depend
 	$(MAKE) -f CMakeFiles/MLinCpp.dir/build.make CMakeFiles/MLinCpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target MLinCpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles --progress-num=4,5 "Built target MLinCpp"
 .PHONY : CMakeFiles/MLinCpp.dir/all
 
 # Build rule for subdir invocation for target.

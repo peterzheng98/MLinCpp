@@ -61,31 +61,66 @@ const peterzheng::matrix::matrix<float> &
 peterzheng::model::DenseCell::getOutput() const {
   return output;
 }
-
-
-peterzheng::model::Dense::Dense(
-    const peterzheng::matrix::matrix<float> &x,
-    const peterzheng::matrix::matrix<float> &y,
-    const int& feature, const int& samples, const std::vector<int>& layerConnection,
-    float learningRate = 0.1,
-    peterzheng::model::lossFunction::type lossfunction = lossFunction::type::MSE,
-    const std::function<matrix::matrix<float>(
-        matrix::matrix<float>, matrix::matrix<float>)> &lossFunction = lossFunction::mse,
-    const std::string &savingPrefix = "data/training", int savingInterval = 1, int epoches = 128)
-    : x(x), y(y), learningRate(learningRate), lossfunction(lossfunction),
-      lossFunction(lossFunction), savingPrefix(savingPrefix),
-      savingInterval(savingInterval), epoches(epoches), config(layerConnection) {
-  if(this->x.getN() != samples && this->x.getM() != samples) throw exception("Input x error, should have at least samples columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
-  if(this->x.getN() != feature && this->x.getM() != feature) throw exception("Input x error, should have at least feature columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
-  if(this->y.getM() != samples && this->y.getN() != samples) throw exception("Input x error, should have at least samples columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
-
-  if(this->x.getN() == feature) this->x.transpose();
-  if(this->y.getN() == samples) this->y.transpose();
+const peterzheng::matrix::matrix<float> &
+peterzheng::model::DenseCell::getWeight() const {
+  return weight;
 }
-void peterzheng::model::Dense::run() {}
+const peterzheng::matrix::matrix<float> &
+peterzheng::model::DenseCell::getBias() const {
+  return bias;
+}
+//
+//peterzheng::model::Dense::Dense(
+//    const peterzheng::matrix::matrix<float> &x,
+//    const peterzheng::matrix::matrix<float> &y,
+//    const int& feature, const int& samples, const std::vector<int>& layerConnection,
+//    float learningRate = 0.1,
+//    peterzheng::model::lossFunction::type lossfunction = lossFunction::type::MSE,
+//    const std::function<matrix::matrix<float>(
+//        matrix::matrix<float>, matrix::matrix<float>)> &lossFunction = lossFunction::mse,
+//    const std::string &savingPrefix = "data/training", int savingInterval = 1, int epoches = 128)
+//    : x(x), y(y), learningRate(learningRate), lossfunction(lossfunction),
+//      lossFunction(lossFunction), savingPrefix(savingPrefix),
+//      savingInterval(savingInterval), epoches(epoches), config(layerConnection) {
+//  if(this->x.getN() != samples && this->x.getM() != samples) throw exception("Input x error, should have at least samples columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
+//  if(this->x.getN() != feature && this->x.getM() != feature) throw exception("Input x error, should have at least feature columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
+//  if(this->y.getM() != samples && this->y.getN() != samples) throw exception("Input x error, should have at least samples columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
+//
+//  if(this->x.getN() == feature) this->x.transpose();
+//  if(this->y.getN() == samples) this->y.transpose();
+//}
+void peterzheng::model::Dense::run() {
+
+}
+void peterzheng::model::Dense::summary() {
+  for(size_t idx = 0; idx < 50; idx++) std::cout << "=";
+  std::cout << std::endl << "Summary" << std::endl;
+  for(size_t idx = 0; idx < 50; idx++) std::cout << "=";
+  std::cout << std::endl;
+  int LayerIdx = 0;
+  long long sum = 0;
+  for(auto &j : kernel){
+    std::cout << "Dense_" << LayerIdx << "\t\t\t(" << j.getWeight().getM() << "," << j.getWeight().getN() << ")\t\t\t" << j.getWeight().getM() * j.getWeight().getN() + j.getBias().getN() * j.getBias().getM() << std::endl;
+    sum += (j.getWeight().getM() * j.getWeight().getN() + j.getBias().getN() * j.getBias().getM());
+    LayerIdx++;
+  }
+  for(size_t idx = 0; idx < 50; idx++) std::cout << "=";
+  std::cout << std::endl << "Total Parameters: " << sum << std::endl;
+  for(size_t idx = 0; idx < 50; idx++) std::cout << "=";
+  std::cout << std::endl;
+}
 void peterzheng::model::Dense::compile() {
+  int lastInputSize = this->x.getM();
   // connect the layers
-  for(auto &layerConfig : )
+  for(auto &layerConfig : config){
+    this->kernel.push_back(DenseCell(matrix::matrix<float>(lastInputSize, 1), matrix::matrix<float>(layerConfig, 1), layerConfig, activationFunction::type::Tanh, matrix::tanh<float>, matrix::tanhGrad<float>));
+    lastInputSize = layerConfig;
+  }
+  this->kernel.push_back(DenseCell(matrix::matrix<float>(lastInputSize, 1), matrix::matrix<float>(1, 1), 1, activationFunction::type::Sigmoid, matrix::sigmoid<float>, matrix::sigmoidGrad<float>));
+  for(auto &j: this->kernel) {
+    j.compile();
+    j.init();
+  }
 
 }
 float peterzheng::model::Dense::loss() { return 0; }

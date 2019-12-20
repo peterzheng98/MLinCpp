@@ -1,6 +1,7 @@
 /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/RunLR.dir
 /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/RNN.dir
+/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/DenseLayerTest.dir
+/Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/RunLR.dir
 /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/MatrixTest.dir
 /Users/peterzheng/CLionProjects/MLinCpp/cmake-build-debug/CMakeFiles/MLinCpp.dir

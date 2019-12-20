@@ -24,6 +24,14 @@ private:
   std::function<matrix::matrix<float>(matrix::matrix<float>)> activationGrad;
 
   static std::random_device r;
+
+public:
+  const matrix::matrix<float> &getBias() const;
+
+public:
+  const matrix::matrix<float> &getWeight() const;
+
+private:
   std::default_random_engine randomEngine;
   std::uniform_real_distribution<float> uniformRealDistribution;
 
@@ -73,17 +81,45 @@ private:
   std::uniform_real_distribution<float> uniformRealDistribution;
 
 public:
-  Dense(const matrix::matrix<float> &x, const matrix::matrix<float> &y,
-        const int &feature, const int &samples,
-        const std::vector<int> &layerConnection, float learningRate,
-        lossFunction::type lossfunction,
-        const std::function<matrix::matrix<float>(
-            matrix::matrix<float>, matrix::matrix<float>)> &lossFunction,
-        const std::string &savingPrefix, int savingInterval, int epoches);
+  Dense(const peterzheng::matrix::matrix<float> &x,
+        const peterzheng::matrix::matrix<float> &y, const int &feature,
+        const int &samples, const std::vector<int> &layerConnection,
+        float learningRate = 0.1,
+        peterzheng::model::lossFunction::type lossfunction =
+            lossFunction::type::MSE,
+//        const std::function<matrix::matrix<float>(matrix::matrix<float>,
+//                                                  matrix::matrix<float>)>
+//            &lossFunction = lossFunction::mse,
+        const std::string &savingPrefix = "data/training",
+        int savingInterval = 1, int epoches = 128)
+      : x(x), y(y), learningRate(learningRate), lossfunction(lossfunction),
+        //lossFunction(lossFunction),
+        savingPrefix(savingPrefix),
+        savingInterval(savingInterval), epoches(epoches),
+        config(layerConnection) {
+    if (this->x.getN() != samples && this->x.getM() != samples)
+      throw exception(
+          "Input x error, should have at least samples columns or samples rows",
+          std::string(__FILE__), "InputError", __LINE__);
+    if (this->x.getN() != feature && this->x.getM() != feature)
+      throw exception(
+          "Input x error, should have at least feature columns or samples rows",
+          std::string(__FILE__), "InputError", __LINE__);
+    if (this->y.getM() != samples && this->y.getN() != samples)
+      throw exception(
+          "Input x error, should have at least samples columns or samples rows",
+          std::string(__FILE__), "InputError", __LINE__);
+
+    if (this->x.getN() == feature)
+      this->x.transpose();
+    if (this->y.getN() == samples)
+      this->y.transpose();
+  }
 
 public:
   void run() override;
   void compile() override;
+  void summary();
   float loss() override;
 };
 

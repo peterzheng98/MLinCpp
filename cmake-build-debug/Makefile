@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named RunLR
-
-# Build rule for target.
-RunLR: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 RunLR
-.PHONY : RunLR
-
-# fast build rule for target.
-RunLR/fast:
-	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/build
-.PHONY : RunLR/fast
-
-#=============================================================================
 # Target rules for targets named RNN
 
 # Build rule for target.
@@ -135,6 +122,32 @@ RNN: cmake_check_build_system
 RNN/fast:
 	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/build
 .PHONY : RNN/fast
+
+#=============================================================================
+# Target rules for targets named DenseLayerTest
+
+# Build rule for target.
+DenseLayerTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DenseLayerTest
+.PHONY : DenseLayerTest
+
+# fast build rule for target.
+DenseLayerTest/fast:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/build
+.PHONY : DenseLayerTest/fast
+
+#=============================================================================
+# Target rules for targets named RunLR
+
+# Build rule for target.
+RunLR: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 RunLR
+.PHONY : RunLR
+
+# fast build rule for target.
+RunLR/fast:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/build
+.PHONY : RunLR/fast
 
 #=============================================================================
 # Target rules for targets named MatrixTest
@@ -222,6 +235,7 @@ neuralNetworks/Dense.o: neuralNetworks/Dense.cpp.o
 
 # target to build an object file
 neuralNetworks/Dense.cpp.o:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/neuralNetworks/Dense.cpp.o
 	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/neuralNetworks/Dense.cpp.o
 .PHONY : neuralNetworks/Dense.cpp.o
 
@@ -231,6 +245,7 @@ neuralNetworks/Dense.i: neuralNetworks/Dense.cpp.i
 
 # target to preprocess a source file
 neuralNetworks/Dense.cpp.i:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/neuralNetworks/Dense.cpp.i
 	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/neuralNetworks/Dense.cpp.i
 .PHONY : neuralNetworks/Dense.cpp.i
 
@@ -240,6 +255,7 @@ neuralNetworks/Dense.s: neuralNetworks/Dense.cpp.s
 
 # target to generate assembly for a file
 neuralNetworks/Dense.cpp.s:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/neuralNetworks/Dense.cpp.s
 	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/neuralNetworks/Dense.cpp.s
 .PHONY : neuralNetworks/Dense.cpp.s
 
@@ -269,6 +285,33 @@ neuralNetworks/RNN.s: neuralNetworks/RNN.cpp.s
 neuralNetworks/RNN.cpp.s:
 	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/neuralNetworks/RNN.cpp.s
 .PHONY : neuralNetworks/RNN.cpp.s
+
+unitTest/DenseLayerTest.o: unitTest/DenseLayerTest.cpp.o
+
+.PHONY : unitTest/DenseLayerTest.o
+
+# target to build an object file
+unitTest/DenseLayerTest.cpp.o:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/unitTest/DenseLayerTest.cpp.o
+.PHONY : unitTest/DenseLayerTest.cpp.o
+
+unitTest/DenseLayerTest.i: unitTest/DenseLayerTest.cpp.i
+
+.PHONY : unitTest/DenseLayerTest.i
+
+# target to preprocess a source file
+unitTest/DenseLayerTest.cpp.i:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/unitTest/DenseLayerTest.cpp.i
+.PHONY : unitTest/DenseLayerTest.cpp.i
+
+unitTest/DenseLayerTest.s: unitTest/DenseLayerTest.cpp.s
+
+.PHONY : unitTest/DenseLayerTest.s
+
+# target to generate assembly for a file
+unitTest/DenseLayerTest.cpp.s:
+	$(MAKE) -f CMakeFiles/DenseLayerTest.dir/build.make CMakeFiles/DenseLayerTest.dir/unitTest/DenseLayerTest.cpp.s
+.PHONY : unitTest/DenseLayerTest.cpp.s
 
 unitTest/matrixTest.o: unitTest/matrixTest.cpp.o
 
@@ -331,9 +374,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... RunLR"
 	@echo "... edit_cache"
 	@echo "... RNN"
+	@echo "... DenseLayerTest"
+	@echo "... RunLR"
 	@echo "... MatrixTest"
 	@echo "... MLinCpp"
 	@echo "... main.o"
@@ -348,6 +392,9 @@ help:
 	@echo "... neuralNetworks/RNN.o"
 	@echo "... neuralNetworks/RNN.i"
 	@echo "... neuralNetworks/RNN.s"
+	@echo "... unitTest/DenseLayerTest.o"
+	@echo "... unitTest/DenseLayerTest.i"
+	@echo "... unitTest/DenseLayerTest.s"
 	@echo "... unitTest/matrixTest.o"
 	@echo "... unitTest/matrixTest.i"
 	@echo "... unitTest/matrixTest.s"
