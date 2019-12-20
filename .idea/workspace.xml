@@ -2,10 +2,10 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="MLinCpp" targetName="RunLR" />
+      <config projectName="MLinCpp" targetName="RNN" />
       <config projectName="MLinCpp" targetName="MatrixTest" />
       <config projectName="MLinCpp" targetName="MLinCpp" />
-      <config projectName="MLinCpp" targetName="RNN" />
+      <config projectName="MLinCpp" targetName="RunLR" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -15,8 +15,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/neuralNetworks/Dense.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/neuralNetworks/Dense.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/neuralNetworks/parameter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MLinCpp.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/linearRegression/logisticRegression.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/linearRegression/logisticRegression.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrix/matrixTools.h" beforeDir="false" afterPath="$PROJECT_DIR$/matrix/matrixTools.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/runLR.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/runLR.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +138,9 @@
       <workItem from="1575815459189" duration="1411000" />
       <workItem from="1575954416962" duration="617000" />
       <workItem from="1575974162588" duration="5052000" />
-      <workItem from="1576150572679" duration="308000" />
+      <workItem from="1576150572679" duration="2100000" />
+      <workItem from="1576589137765" duration="155000" />
+      <workItem from="1576805191207" duration="6117000" />
     </task>
     <servers />
   </component>

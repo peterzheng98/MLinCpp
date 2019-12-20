@@ -117,9 +117,71 @@ template <class T> matrix<T> getTranspose(const matrix<T> &mat) {
       ret(row, col) = mat(col, row);
   return ret;
 }
+template <class T> matrix<float> linear(const matrix<T>& src){
+  return src;
+}
+
+template <class T> float _tanh(const T& data){
+  checkTypeCalculated(T());
+  return tanh(data);
+}
+
+template <class T> matrix<float> tanh(const matrix<T>& src){
+  matrix<float> result(src.getM(), src.getN());
+  if (src.getN() != 1 && src.getM() != 1)
+    std::cerr << "Warning: [" << __FILE__ << ":" << __LINE__
+              << "]: Try to do tanh on a matrix object" << std::endl;
+  for (size_t idx = 0; idx < src.getM(); ++idx)
+    for (size_t idx2 = 0; idx2 < src.getN(); ++idx2)
+      result(idx, idx2) = _tanh(src(idx, idx2));
+  return result;
+  // Todo: Tobe tested
+}
+
+template <class T> matrix<float> tanhGrad(const matrix<T>& src){
+  matrix<float> result(src.getM(), src.getN());
+  if (src.getN() != 1 && src.getM() != 1)
+    std::cerr << "Warning: [" << __FILE__ << ":" << __LINE__
+              << "]: Try to do tanh on a matrix object" << std::endl;
+  for (size_t idx = 0; idx < src.getM(); ++idx)
+    for (size_t idx2 = 0; idx2 < src.getN(); ++idx2)
+      result(idx, idx2) = 1 - (_tanh(src(idx, idx2)) * _tanh(src(idx, idx2)));
+  return result;
+  // Todo: Tobe tested
+}
+
+
+template <class T> float _relu(const T& data){
+  checkTypeCalculated(T());
+  return data > T(0) ? data : T(0);
+}
+
+template <class T> matrix<float> relu(const matrix<T>& src){
+  matrix<float> result(src.getM(), src.getN());
+  if (src.getN() != 1 && src.getM() != 1)
+    std::cerr << "Warning: [" << __FILE__ << ":" << __LINE__
+              << "]: Try to do relu on a matrix object" << std::endl;
+  for (size_t idx = 0; idx < src.getM(); ++idx)
+    for (size_t idx2 = 0; idx2 < src.getN(); ++idx2)
+      result(idx, idx2) = _relu(src(idx, idx2));
+  return result;
+  // Todo: Tobe tested
+}
 template <class T> float _sigmoid(const T &data) {
   checkTypeCalculated(T());
   return 1.0 / (1.0 + exp(-data));
+}
+
+template <class T> matrix<float> sigmoidGrad(const matrix<T> &src) {
+  matrix<float> result(src.getM(), src.getN());
+  if (src.getN() != 1 && src.getM() != 1)
+    std::cerr << "Warning: [" << __FILE__ << ":" << __LINE__
+              << "]: Try to do sigmoid on a matrix object" << std::endl;
+  for (size_t idx = 0; idx < src.getM(); ++idx)
+    for (size_t idx2 = 0; idx2 < src.getN(); ++idx2)
+      result(idx, idx2) = (_sigmoid(src(idx, idx2))) * (1 - _sigmoid(src(idx, idx2)));
+  return result;
+  // Todo: Tobe tested
 }
 
 template <class T> matrix<float> sigmoid(const matrix<T> &src) {
@@ -166,6 +228,18 @@ matrix<float> QR_compute_householder_factor(const matrix<T> &mat,
       ret(idx1, idx2) = -2 * rawVec(idx1, 0) * rawVec(0, idx2);
 
   ret += getIdentity<float>(rawVec.getM());
+  return ret;
+}
+template <class T>
+matrix<T> getRow(const matrix<T>& src, const size_t& row) {
+  if(row >= src.getM())
+    throw exception("Row larger than matrix! [" +
+                    std::to_string(src.getM()) + "] Request [" +
+                    std::to_string(row) + "]",
+                    std::string(__FILE__), "MatrixError", __LINE__);
+  matrix<T> ret(1, src.getN());
+  for(size_t idx = 0; idx < src.getN(); ++idx)
+    ret(0, idx) = src(row, idx);
   return ret;
 }
 

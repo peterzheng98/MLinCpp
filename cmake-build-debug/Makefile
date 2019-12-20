@@ -216,6 +216,33 @@ neuralNetworks/Conv2D.cpp.s:
 	$(MAKE) -f CMakeFiles/RNN.dir/build.make CMakeFiles/RNN.dir/neuralNetworks/Conv2D.cpp.s
 .PHONY : neuralNetworks/Conv2D.cpp.s
 
+neuralNetworks/Dense.o: neuralNetworks/Dense.cpp.o
+
+.PHONY : neuralNetworks/Dense.o
+
+# target to build an object file
+neuralNetworks/Dense.cpp.o:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/neuralNetworks/Dense.cpp.o
+.PHONY : neuralNetworks/Dense.cpp.o
+
+neuralNetworks/Dense.i: neuralNetworks/Dense.cpp.i
+
+.PHONY : neuralNetworks/Dense.i
+
+# target to preprocess a source file
+neuralNetworks/Dense.cpp.i:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/neuralNetworks/Dense.cpp.i
+.PHONY : neuralNetworks/Dense.cpp.i
+
+neuralNetworks/Dense.s: neuralNetworks/Dense.cpp.s
+
+.PHONY : neuralNetworks/Dense.s
+
+# target to generate assembly for a file
+neuralNetworks/Dense.cpp.s:
+	$(MAKE) -f CMakeFiles/RunLR.dir/build.make CMakeFiles/RunLR.dir/neuralNetworks/Dense.cpp.s
+.PHONY : neuralNetworks/Dense.cpp.s
+
 neuralNetworks/RNN.o: neuralNetworks/RNN.cpp.o
 
 .PHONY : neuralNetworks/RNN.o
@@ -315,6 +342,9 @@ help:
 	@echo "... neuralNetworks/Conv2D.o"
 	@echo "... neuralNetworks/Conv2D.i"
 	@echo "... neuralNetworks/Conv2D.s"
+	@echo "... neuralNetworks/Dense.o"
+	@echo "... neuralNetworks/Dense.i"
+	@echo "... neuralNetworks/Dense.s"
 	@echo "... neuralNetworks/RNN.o"
 	@echo "... neuralNetworks/RNN.i"
 	@echo "... neuralNetworks/RNN.s"

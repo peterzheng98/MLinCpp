@@ -224,6 +224,12 @@
 		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks/Conv2D.h">
 			<Option target="RNN"/>
 		</Unit>
+		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks/Dense.cpp">
+			<Option target="RunLR"/>
+		</Unit>
+		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks/Dense.h">
+			<Option target="RunLR"/>
+		</Unit>
 		<Unit filename="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks/RNN.cpp">
 			<Option target="RNN"/>
 		</Unit>

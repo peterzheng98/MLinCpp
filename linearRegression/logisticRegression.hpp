@@ -47,7 +47,7 @@ public:
     std::cout.setf(std::ios::fixed, std::ios::floatfield);
     std::cout.precision(4);
     std::cout << "Epoch: " << currentEpoch << "/" << epoches
-              // << ": Training Loss: " << loss() << " Training Acc: " << acc() * 100 << "%"
+              << ": Training Loss: " << loss() << " Training Acc: " << acc() * 100 << "%"
               << ": AUC: " << auc()
               << " Last Epoch: " << timePerEpoch
               << "s ETA: " << timePerEpoch * 1.0 * (epoches - currentEpoch)
