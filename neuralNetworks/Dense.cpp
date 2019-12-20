@@ -61,10 +61,6 @@ const peterzheng::matrix::matrix<float> &
 peterzheng::model::DenseCell::getOutput() const {
   return output;
 }
-void peterzheng::model::DenseCell::setOutput(
-    const peterzheng::matrix::matrix<float> &output) {
-  DenseCell::output = output;
-}
 
 
 peterzheng::model::Dense::Dense(
@@ -78,13 +74,18 @@ peterzheng::model::Dense::Dense(
     const std::string &savingPrefix = "data/training", int savingInterval = 1, int epoches = 128)
     : x(x), y(y), learningRate(learningRate), lossfunction(lossfunction),
       lossFunction(lossFunction), savingPrefix(savingPrefix),
-      savingInterval(savingInterval), epoches(epoches) {
+      savingInterval(savingInterval), epoches(epoches), config(layerConnection) {
   if(this->x.getN() != samples && this->x.getM() != samples) throw exception("Input x error, should have at least samples columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
   if(this->x.getN() != feature && this->x.getM() != feature) throw exception("Input x error, should have at least feature columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
   if(this->y.getM() != samples && this->y.getN() != samples) throw exception("Input x error, should have at least samples columns or samples rows", std::string(__FILE__), "InputError", __LINE__);
 
   if(this->x.getN() == feature) this->x.transpose();
   if(this->y.getN() == samples) this->y.transpose();
-  // convert layer connection to the real layer.
+}
+void peterzheng::model::Dense::run() {}
+void peterzheng::model::Dense::compile() {
+  // connect the layers
+  for(auto &layerConfig : )
 
 }
+float peterzheng::model::Dense::loss() { return 0; }

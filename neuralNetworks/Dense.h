@@ -44,7 +44,6 @@ public:
   const matrix::matrix<float> &getInput() const;
   void setInput(const matrix::matrix<float> &input);
   const matrix::matrix<float> &getOutput() const;
-  void setOutput(const matrix::matrix<float> &output);
   void update(const float &eta, const matrix::matrix<float> &grad);
 };
 
@@ -57,6 +56,7 @@ class Dense : public model {
 private:
   matrix::matrix<float> x, y;
   std::vector<DenseCell> kernel;
+  std::vector<int> config;
   float learningRate;
 
   lossFunction::type lossfunction;
@@ -80,6 +80,11 @@ public:
         const std::function<matrix::matrix<float>(
             matrix::matrix<float>, matrix::matrix<float>)> &lossFunction,
         const std::string &savingPrefix, int savingInterval, int epoches);
+
+public:
+  void run() override;
+  void compile() override;
+  float loss() override;
 };
 
 } // namespace model
