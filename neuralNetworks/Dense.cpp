@@ -4,6 +4,9 @@
 
 #include "Dense.h"
 #include "../matrix/matrixTools.h"
+#include <cmath>
+template <class T>
+T abs(const T& a){ return a > 0 ? a : -a; }
 peterzheng::model::DenseCell::DenseCell(
     const peterzheng::matrix::matrix<float> &input,
     const peterzheng::matrix::matrix<float> &output, const int &outputSize,
@@ -21,6 +24,7 @@ void peterzheng::model::DenseCell::run() {
 }
 peterzheng::matrix::matrix<float> peterzheng::model::DenseCell::run(
     const peterzheng::matrix::matrix<float> &x) {
+  this->input = x;
   this->output = activationfunc(weight * x + bias);
   return this->output;
 }
@@ -77,6 +81,10 @@ const peterzheng::matrix::matrix<float> &
 peterzheng::model::DenseCell::getBias() const {
   return bias;
 }
+const std::function<peterzheng::matrix::matrix<float>(peterzheng::matrix::matrix<float>)> &
+peterzheng::model::DenseCell::getActivationGrad() const {
+  return activationGrad;
+}
 // Basic Idea:
 
 void peterzheng::model::Dense::run() {
@@ -97,7 +105,7 @@ void peterzheng::model::Dense::run() {
       higher = std::min(batchRound * batchSize - 1, totalNum - 1);
       std::uniform_int_distribution<unsigned>::param_type param(lower, higher);
       uniformIntDistribution.param(param);
-      int target = uniformIntDistribution(randomEngine);
+      int target = abs<int>(uniformIntDistribution(randomEngine)) % (higher - lower) + lower;
 
       // Calculate forward
       auto lastInput = matrix::getColumn(x, target);
@@ -105,7 +113,7 @@ void peterzheng::model::Dense::run() {
       for(auto &layer : this->kernel){
         lastInput = layer.run(lastInput);
       }
-      // Calculate backward
+      // Calculate backward and update
       // Step 1: Calculate errors
       matrix::matrix<float> ErrorETA(1, y.getN());
       for(size_t idx = 0; idx < y.getN(); ++idx)
@@ -113,11 +121,48 @@ void peterzheng::model::Dense::run() {
       // Step 2: Update the weight and back prop
       size_t length = this->kernel.size();
       for(size_t LayerIdx = length - 1; LayerIdx > 0; --LayerIdx){
-
+        auto oldOutput = this->kernel[LayerIdx].getOutput();
+        auto oldInput = this->kernel[LayerIdx].getInput();
+        auto beforeWeight = this->kernel[LayerIdx].getWeight();
+        auto newWeight = beforeWeight + matrix::getTranspose((oldInput * ErrorETA)) * learningRate;
+        ErrorETA = ErrorETA * beforeWeight;
+        for(size_t idx = 0; idx < ErrorETA.getN(); ++idx)
+          ErrorETA(0, idx) = ErrorETA(0, idx) * this->kernel[LayerIdx].getActivationGrad()(oldInput)(idx, 0);
       }
+      std::chrono::steady_clock::time_point slice_end = std::chrono::steady_clock::now();
+      std::chrono::steady_clock::duration slice_duration = slice_end - slice_start;
+      outputProgressBarFlush(currentEpoch, batchRound, slice, std::chrono::duration_cast<std::chrono::milliseconds>(slice_duration).count() / 1000.0);
     }
+    std::chrono::steady_clock::time_point epoch_end =
+        std::chrono::steady_clock::now();
+    std::chrono::steady_clock::duration epoch_duration =
+        epoch_end - epoch_start;
+    outputProgress(
+        currentEpoch,
+        std::chrono::duration_cast<std::chrono::milliseconds>(epoch_duration).count() / 1000.0);
   }
 
+}
+
+void peterzheng::model::Dense::outputProgressBarFlush(int currentEpoch, int slice, int sliceAll,
+                            float timePerSlice) {
+  std::cout << "Epoch: " << currentEpoch << "/" << this->epoches
+            << ": Slice Progress: " << slice * 100.0 / sliceAll
+            // << " == Training Loss: " << loss()
+            << " Last Slice: " << timePerSlice << "s ETA: "
+            << timePerSlice * 1.0 * (sliceAll - slice) + timePerSlice * 1.0 * sliceAll *
+               (this->epoches - currentEpoch - 1)
+            << "s\r" << std::flush;
+}
+void peterzheng::model::Dense::outputProgress(int currentEpoch, float timePerEpoch) {
+  auto lossR = loss();
+  for(size_t idx = 0; idx < 50; ++idx) std::cout << " ";
+  std::cout << "\r" << std::flush;
+  std::cout << "Epoch: " << currentEpoch << "/" << this->epoches
+            << ": Training Loss: " << lossR
+            << " Last Epoch: " << timePerEpoch
+            << "s ETA: " << timePerEpoch * 1.0 * (this->epoches - currentEpoch)
+            << "s" << std::endl;
 }
 void peterzheng::model::Dense::summary() {
   for (size_t idx = 0; idx < 50; idx++)
@@ -166,7 +211,22 @@ void peterzheng::model::Dense::compile() {
   }
 }
 float peterzheng::model::Dense::loss() {
-  return 0;
+  std::cout << "Evaluate on all data" << std::endl;
+  int ACC = 0;
+  double lossSum = 0.0;
+  for(size_t target = 0; target < x.getN(); ++target) {
+    auto lastInput = matrix::getColumn(x, target);
+    auto basicStandard = matrix::getRow(y, target);
+    for (auto &layer : this->kernel) {
+      lastInput = layer.run(lastInput);
+    }
+    lossSum += ((lastInput(0, 0) - basicStandard(0, 0)) * (lastInput(0, 0) - basicStandard(0, 0)));
+    if(lastInput(0, 0) >= 0.5 && basicStandard(0,0)) ACC++;
+    else if(lastInput(0, 0) <= 0.5 && !basicStandard(0, 0)) ACC++;
+    std::cout << "\t Target: " << target << " Remaining: " << x.getN() - target << " loss: " << lossSum << "\r" << std::flush;
+  }
+  std::cout << "Acc: " <<  100.0 * ACC / totalNum << std::endl;
+  return lossSum / totalNum / 2.0;
 }
 peterzheng::model::Dense::Dense(
     const peterzheng::matrix::matrix<float> &x,

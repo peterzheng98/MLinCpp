@@ -9,8 +9,8 @@
 //#include "../matrix/matrixTools.h"
 #include "../toplevel/model.h"
 #include "parameter.h"
-#include <random>
 #include <functional>
+#include <random>
 namespace peterzheng {
 namespace model {
 // Toy Dense Layer
@@ -24,7 +24,6 @@ private:
   std::function<matrix::matrix<float>(matrix::matrix<float>)> activationGrad;
 
   static std::random_device r;
-
 
 public:
   const matrix::matrix<float> &getBias() const;
@@ -49,13 +48,15 @@ public:
   void run() override;
   matrix::matrix<float> run(const matrix::matrix<float> &x);
   void compile() override;
+  const std::function<matrix::matrix<float>(matrix::matrix<float>)> &
+  getActivationGrad() const;
   float loss() override;
   void init();
   const matrix::matrix<float> &getInput() const;
   void setInput(const matrix::matrix<float> &input);
   const matrix::matrix<float> &getOutput() const;
   void update(const float &eta, const matrix::matrix<float> &grad);
-  const matrix::matrix<float> operator()(const matrix::matrix<float> &x){
+  const matrix::matrix<float> operator()(const matrix::matrix<float> &x) {
     return run(x);
   }
 };
@@ -95,13 +96,18 @@ public:
         peterzheng::model::lossFunction::type lossfunction =
             lossFunction::type::MSE,
         const std::string &savingPrefix = "data/training",
-        int savingInterval = 1, int epoches = 128, int batchSize = 1);
+        int savingInterval = 1, int epoches = 128, int batchSize = 32);
 
 public:
   void run() override;
   void compile() override;
   void summary();
   float loss() override;
+
+public:
+  void outputProgressBarFlush(int currentEpoch, int slice, int sliceAll,
+                              float timePerSlice);
+  void outputProgress(int currentEpoch, float timePerEpoch);
 };
 
 } // namespace model

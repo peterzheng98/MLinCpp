@@ -6,6 +6,11 @@
 #define MLINCPP_EXCEPTION_H
 #include <exception>
 #include <iostream>
+#include <stdio.h>
+#include <execinfo.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <string>
 namespace peterzheng {
 class exception : public std::exception {
@@ -27,10 +32,24 @@ public:
             std::to_string(line) + "]: " + content)
         .c_str();
   }
+  void handler() {
+    void *array[10];
+    size_t size;
+
+    // get void*'s for all entries on the stack
+    size = backtrace(array, 10);
+
+    // print out all the frames to stderr
+//    fprintf(stderr, "Error: signal %d:\n", sig);
+    backtrace_symbols_fd(array, size, STDERR_FILENO);
+
+  }
   exception(const std::string &content, const std::string &file,
             const std::string &type, int line)
       : content(content), file(file), type(type), line(line) {
-    std::cerr << file << "[" << line << "]" << type << ": " << content << std::endl;
+    std::cerr << std::flush;
+    handler();
+    std::cerr << std::flush;
   }
 };
 } // namespace peterzheng

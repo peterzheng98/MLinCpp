@@ -17,8 +17,11 @@
   <component name="ChangeListManager">
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc/exception.h" beforeDir="false" afterPath="$PROJECT_DIR$/misc/exception.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/neuralNetworks/Dense.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetworks/Dense.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/neuralNetworks/Dense.h" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetworks/Dense.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTest/DenseLayerTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/DenseLayerTest.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +141,8 @@
       <workItem from="1575974162588" duration="5052000" />
       <workItem from="1576150572679" duration="2100000" />
       <workItem from="1576589137765" duration="155000" />
-      <workItem from="1576805191207" duration="21335000" />
+      <workItem from="1576805191207" duration="21892000" />
+      <workItem from="1576894275058" duration="5280000" />
     </task>
     <servers />
   </component>
@@ -172,6 +176,20 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/neuralNetworks/Dense.cpp</url>
+          <line>107</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/neuralNetworks/Dense.cpp</url>
+          <line>123</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="sigmoidMat(idx, 0)" language="ObjectiveC" />
