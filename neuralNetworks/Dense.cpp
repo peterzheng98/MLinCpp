@@ -25,10 +25,20 @@ void peterzheng::model::DenseCell::run() {
 peterzheng::matrix::matrix<float> peterzheng::model::DenseCell::run(
     const peterzheng::matrix::matrix<float> &x) {
   this->input = x;
-  this->output = activationfunc(weight * x + bias);
+  if(this->activation == activationFunction::Tanh)
+    this->output = matrix::tanh(weight * x + bias);
+  else if(this->activation == activationFunction::Sigmoid)
+    this->output = matrix::sigmoid(weight * x + bias);
   return this->output;
 }
+
+peterzheng::matrix::matrix<float> peterzheng::model::DenseCell::eval(
+    const peterzheng::matrix::matrix<float> &x) {
+  return this->activation == activationFunction::Tanh ? matrix::tanh(weight * x + bias) : (this->activation == activationFunction::Sigmoid ? this->output = matrix::sigmoid(weight * x + bias): this->output = matrix::sigmoid(weight * x + bias));
+}
+
 void peterzheng::model::DenseCell::compile() {
+  srand(time(0));
   if (input.getM() != 1 && input.getN() != 1)
     throw exception("Dense layer request for vector input.",
                     std::string(__FILE__), "Internal Error", __LINE__);
@@ -50,9 +60,9 @@ void peterzheng::model::DenseCell::init() {
   output.reload(outputSize, 1); // Hidden States
   for (size_t idx1 = 0; idx1 < outputSize; ++idx1) {
     for (size_t idx2 = 0; idx2 < input.getM(); ++idx2) {
-      weight(idx1, idx2) = uniformRealDistribution(randomEngine);
+      weight(idx1, idx2) = rand() / float(RAND_MAX);
     }
-    bias(idx1, 0) = uniformRealDistribution(randomEngine);
+    bias(idx1, 0) = rand() / float(RAND_MAX);
     output(idx1, 0) = 0.0;
   }
 }
@@ -85,6 +95,18 @@ const std::function<peterzheng::matrix::matrix<float>(peterzheng::matrix::matrix
 peterzheng::model::DenseCell::getActivationGrad() const {
   return activationGrad;
 }
+void peterzheng::model::DenseCell::setWeight(
+    const peterzheng::matrix::matrix<float> &weight) {
+  DenseCell::weight = weight;
+}
+const std::function<peterzheng::matrix::matrix<float>(peterzheng::matrix::matrix<float>)> &
+peterzheng::model::DenseCell::getActivationfunc() const {
+  return activationfunc;
+}
+peterzheng::model::activationFunction::type
+peterzheng::model::DenseCell::getActivation() const {
+  return activation;
+}
 // Basic Idea:
 
 void peterzheng::model::Dense::run() {
@@ -102,10 +124,10 @@ void peterzheng::model::Dense::run() {
       std::chrono::steady_clock::time_point slice_start = std::chrono::steady_clock::now();
 
       lower = batchRound * batchSize;
-      higher = std::min(batchRound * batchSize - 1, totalNum - 1);
+      higher = std::min((batchRound + 1) * batchSize - 1, totalNum - 1);
       std::uniform_int_distribution<unsigned>::param_type param(lower, higher);
       uniformIntDistribution.param(param);
-      int target = abs<int>(uniformIntDistribution(randomEngine)) % (higher - lower) + lower;
+      int target = abs<int>(rand() % (higher - lower)) + lower;
 
       // Calculate forward
       auto lastInput = matrix::getColumn(x, target);
@@ -126,8 +148,13 @@ void peterzheng::model::Dense::run() {
         auto beforeWeight = this->kernel[LayerIdx].getWeight();
         auto newWeight = beforeWeight + matrix::getTranspose((oldInput * ErrorETA)) * learningRate;
         ErrorETA = ErrorETA * beforeWeight;
-        for(size_t idx = 0; idx < ErrorETA.getN(); ++idx)
-          ErrorETA(0, idx) = ErrorETA(0, idx) * this->kernel[LayerIdx].getActivationGrad()(oldInput)(idx, 0);
+        auto type = this->kernel[LayerIdx].getActivation();
+        for(size_t idx = 0; idx < ErrorETA.getN(); ++idx){
+          if(type == activationFunction::Sigmoid) ErrorETA(0, idx) = ErrorETA(0, idx) * matrix::sigmoidGrad(oldInput)(idx, 0);
+          else if(type == activationFunction::Tanh) ErrorETA(0, idx) = ErrorETA(0, idx) * matrix::tanhGrad(oldInput)(idx, 0);
+        }
+
+        this->kernel[LayerIdx].setWeight(newWeight);
       }
       std::chrono::steady_clock::time_point slice_end = std::chrono::steady_clock::now();
       std::chrono::steady_clock::duration slice_duration = slice_end - slice_start;
@@ -218,14 +245,15 @@ float peterzheng::model::Dense::loss() {
     auto lastInput = matrix::getColumn(x, target);
     auto basicStandard = matrix::getRow(y, target);
     for (auto &layer : this->kernel) {
-      lastInput = layer.run(lastInput);
+      lastInput = layer.eval(lastInput);
     }
     lossSum += ((lastInput(0, 0) - basicStandard(0, 0)) * (lastInput(0, 0) - basicStandard(0, 0)));
     if(lastInput(0, 0) >= 0.5 && basicStandard(0,0)) ACC++;
-    else if(lastInput(0, 0) <= 0.5 && !basicStandard(0, 0)) ACC++;
+    else if(lastInput(0, 0) < 0.5 && !basicStandard(0, 0)) ACC++;
+    std::cout << "\t  LastInput:" << lastInput(0, 0) << "->" << basicStandard(0, 0) << "\t";
     std::cout << "\t Target: " << target << " Remaining: " << x.getN() - target << " loss: " << lossSum << "\r" << std::flush;
   }
-  std::cout << "Acc: " <<  100.0 * ACC / totalNum << std::endl;
+  std::cout << "Acc: " <<  100.0 * ACC / totalNum << "\t";
   return lossSum / totalNum / 2.0;
 }
 peterzheng::model::Dense::Dense(

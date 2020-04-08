@@ -11,6 +11,7 @@
 #include "parameter.h"
 #include <functional>
 #include <random>
+#include <ctime>
 namespace peterzheng {
 namespace model {
 // Toy Dense Layer
@@ -27,6 +28,7 @@ private:
 
 public:
   const matrix::matrix<float> &getBias() const;
+  activationFunction::type getActivation() const;
 
 public:
   const matrix::matrix<float> &getWeight() const;
@@ -43,6 +45,9 @@ public:
                 &activationfunc,
             const std::function<matrix::matrix<float>(matrix::matrix<float>)>
                 &activationGrad);
+  const std::function<matrix::matrix<float>(matrix::matrix<float>)> &
+  getActivationfunc() const;
+  void setWeight(const matrix::matrix<float> &weight);
 
 public:
   void run() override;
@@ -52,6 +57,7 @@ public:
   getActivationGrad() const;
   float loss() override;
   void init();
+  matrix::matrix<float> eval(const matrix::matrix<float> &x);
   const matrix::matrix<float> &getInput() const;
   void setInput(const matrix::matrix<float> &input);
   const matrix::matrix<float> &getOutput() const;
@@ -92,11 +98,11 @@ public:
   Dense(const peterzheng::matrix::matrix<float> &x,
         const peterzheng::matrix::matrix<float> &y, const int &feature,
         const int &samples, const std::vector<int> &layerConnection,
-        float learningRate = 0.1,
+        float learningRate = 0.01,
         peterzheng::model::lossFunction::type lossfunction =
             lossFunction::type::MSE,
         const std::string &savingPrefix = "data/training",
-        int savingInterval = 1, int epoches = 128, int batchSize = 32);
+        int savingInterval = 1, int epoches = 128, int batchSize = 64);
 
 public:
   void run() override;

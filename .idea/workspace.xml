@@ -18,12 +18,17 @@
     <list default="true" id="47ee9c4c-e627-4228-b23e-22b55aabd6f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc/exception.h" beforeDir="false" afterPath="$PROJECT_DIR$/misc/exception.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/MLinCpp.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/neuralNetworks/Dense.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetworks/Dense.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/neuralNetworks/Dense.h" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNetworks/Dense.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/DenseLayerTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/DenseLayerTest.cpp" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,18 +78,6 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="CMake Application.DenseLayerTest">
     <configuration name="DenseLayerTest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MLinCpp" TARGET_NAME="DenseLayerTest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MLinCpp" RUN_TARGET_NAME="DenseLayerTest">
       <method v="2">
@@ -119,6 +112,18 @@
       <item itemvalue="CMake Application.RunLR" />
     </list>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -142,7 +147,8 @@
       <workItem from="1576150572679" duration="2100000" />
       <workItem from="1576589137765" duration="155000" />
       <workItem from="1576805191207" duration="21892000" />
-      <workItem from="1576894275058" duration="5280000" />
+      <workItem from="1576894275058" duration="8509000" />
+      <workItem from="1586334622687" duration="334000" />
     </task>
     <servers />
   </component>
@@ -175,24 +181,41 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="2316" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1586334641459">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2316" y="384" key="com.intellij.ide.util.TipDialog/28.23.1652.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1586334641459" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/neuralNetworks/Dense.cpp</url>
-          <line>107</line>
+          <line>129</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/neuralNetworks/Dense.cpp</url>
-          <line>123</line>
-          <option name="timeStamp" value="3" />
+          <line>166</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/neuralNetworks/Dense.cpp</url>
+          <line>149</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/neuralNetworks/Dense.cpp</url>
+          <line>135</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
-        <watch expression="sigmoidMat(idx, 0)" language="ObjectiveC" />
+        <watch expression="this-&gt;kernel[LayerIdx].getWeight()" language="ObjectiveC" />
+        <watch expression="newWeight" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
