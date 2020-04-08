@@ -10,6 +10,11 @@ set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../misc"
+  "../neuralNetworks"
+  "../linearRegression"
+  "../matrix"
+  "../toplevel"
   )
 
 # Targets to which this target links.

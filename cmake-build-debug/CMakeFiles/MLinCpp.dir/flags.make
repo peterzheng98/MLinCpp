@@ -6,5 +6,5 @@ CXX_FLAGS = -g -rdynamic -g -isysroot /Applications/Xcode.app/Contents/Developer
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/Users/peterzheng/CLionProjects/MLinCpp/misc -I/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks -I/Users/peterzheng/CLionProjects/MLinCpp/linearRegression -I/Users/peterzheng/CLionProjects/MLinCpp/matrix -I/Users/peterzheng/CLionProjects/MLinCpp/toplevel 
 

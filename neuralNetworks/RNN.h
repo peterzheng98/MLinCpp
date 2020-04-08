@@ -4,9 +4,9 @@
 
 #ifndef MLINCPP_RNN_H
 #define MLINCPP_RNN_H
-#include "../matrix/matrix.h"
-#include "../matrix/matrixDef.h"
-#include "../toplevel/model.h"
+#include "matrix.h"
+#include "matrixDef.h"
+#include "model.h"
 #include <random>
 #include <functional>
 #include <ctime>

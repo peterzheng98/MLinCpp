@@ -4,8 +4,8 @@
 
 #ifndef MLINCPP_MATRIX_H
 #define MLINCPP_MATRIX_H
-#include "../misc/exception.h"
-#include "../misc/usefulTools.h"
+#include "exception.h"
+#include "usefulTools.h"
 #include "matrixDef.h"
 #include <fstream>
 #include <string>

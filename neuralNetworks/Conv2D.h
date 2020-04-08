@@ -4,9 +4,9 @@
 
 #ifndef MLINCPP_CONV2D_H
 #define MLINCPP_CONV2D_H
-#include "../toplevel/model.h"
-#include "../matrix/matrixDef.h"
-#include "../matrix/matrix.h"
+#include "model.h"
+#include "matrixDef.h"
+#include "matrix.h"
 
 namespace peterzheng{
 namespace model{

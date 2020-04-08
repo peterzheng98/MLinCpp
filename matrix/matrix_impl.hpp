@@ -3,7 +3,7 @@
 //
 #ifndef MLINCPP_MATRIX_IMPL_HPP
 #define MLINCPP_MATRIX_IMPL_HPP
-#include "../misc/exception.h"
+#include "exception.h"
 
 namespace peterzheng {
 namespace matrix {

@@ -5,7 +5,7 @@
 #ifndef MLINCPP_PARAMETER_H
 #define MLINCPP_PARAMETER_H
 
-#include "../matrix/matrix.h"
+#include "matrix.h"
 namespace peterzheng {
 namespace model {
 namespace activationFunction {

@@ -2,7 +2,7 @@
 // Created by 郑文鑫 on 2019/12/20.
 //
 #include "parameter.h"
-#include "../matrix/matrix.h"
+#include "matrix.h"
 using namespace peterzheng;
 matrix::matrix<float> mse(const matrix::matrix<float> &input,
                           const matrix::matrix<float> &__standard) {

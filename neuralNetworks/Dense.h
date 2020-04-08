@@ -5,9 +5,8 @@
 #ifndef MLINCPP_DENSE_H
 #define MLINCPP_DENSE_H
 
-#include "../matrix/matrix.h"
-//#include "../matrix/matrixTools.h"
-#include "../toplevel/model.h"
+#include "matrix.h"
+#include "model.h"
 #include "parameter.h"
 #include <functional>
 #include <random>

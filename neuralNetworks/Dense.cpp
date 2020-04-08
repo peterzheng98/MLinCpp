@@ -3,7 +3,7 @@
 //
 
 #include "Dense.h"
-#include "../matrix/matrixTools.h"
+#include "matrixTools.h"
 #include <cmath>
 template <class T>
 T abs(const T& a){ return a > 0 ? a : -a; }
@@ -132,6 +132,9 @@ void peterzheng::model::Dense::run() {
       // Calculate forward
       auto lastInput = matrix::getColumn(x, target);
       auto basicStandard = matrix::getRow(y, target);
+      // todo: there may have bugs
+      // the layer has the same output of one.
+      // layer norm?
       for(auto &layer : this->kernel){
         lastInput = layer.run(lastInput);
       }
@@ -221,24 +224,22 @@ void peterzheng::model::Dense::compile() {
   int lastInputSize = this->x.getM();
   // connect the layers
   for (auto &layerConfig : config) {
-    this->kernel.push_back(
-        DenseCell(matrix::matrix<float>(lastInputSize, 1),
+    this->kernel.emplace_back(matrix::matrix<float>(lastInputSize, 1),
                   matrix::matrix<float>(layerConfig, 1), layerConfig,
-                  activationFunction::type::Tanh, matrix::tanh<float>,
-                  matrix::tanhGrad<float>));
+                  activationFunction::type::Tanh, matrix::sigmoid<float>,
+                  matrix::sigmoidGrad<float>);
     lastInputSize = layerConfig;
   }
-  this->kernel.push_back(DenseCell(
+  this->kernel.emplace_back(
       matrix::matrix<float>(lastInputSize, 1), matrix::matrix<float>(1, 1), 1,
       activationFunction::type::Sigmoid, matrix::sigmoid<float>,
-      matrix::sigmoidGrad<float>));
+      matrix::sigmoidGrad<float>);
   for (auto &j : this->kernel) {
     j.compile();
     j.init();
   }
 }
 float peterzheng::model::Dense::loss() {
-  std::cout << "Evaluate on all data" << std::endl;
   int ACC = 0;
   double lossSum = 0.0;
   for(size_t target = 0; target < x.getN(); ++target) {

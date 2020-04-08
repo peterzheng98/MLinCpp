@@ -5,8 +5,8 @@
 #ifndef MLINCPP_MATRIXTOOLS_H
 #define MLINCPP_MATRIXTOOLS_H
 
-#include "../misc/exception.h"
-#include "../misc/usefulTools.h"
+#include "exception.h"
+#include "usefulTools.h"
 #include "matrix.h"
 #include "matrixDef.h"
 #include <cmath>

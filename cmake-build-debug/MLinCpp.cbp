@@ -44,6 +44,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -65,6 +70,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -86,6 +96,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -107,6 +122,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -128,6 +148,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -149,6 +174,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -170,6 +200,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -191,6 +226,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -212,6 +252,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -233,6 +278,11 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/misc"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/neuralNetworks"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/linearRegression"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/matrix"/>
+					<Add directory="/Users/peterzheng/CLionProjects/MLinCpp/toplevel"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
